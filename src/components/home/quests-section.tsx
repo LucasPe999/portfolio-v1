@@ -197,16 +197,10 @@ function InfoDivider({ title }: { title: string }) {
 function MobileQuestCard({
   quest,
   currentIndex,
-  total,
-  onPrevious,
-  onNext,
   onOpenPreview,
 }: {
   quest: QuestTab;
   currentIndex: number;
-  total: number;
-  onPrevious: () => void;
-  onNext: () => void;
   onOpenPreview: (quest: QuestTab) => void;
 }) {
   return (
@@ -293,7 +287,7 @@ function MobileQuestCard({
 
           <div className="space-y-3 rounded-[22px] border border-[#224222] bg-[rgba(0,18,0,0.28)] p-4">
             <p className="font-[family:var(--font-display)] text-[17px] text-[var(--accent-soft)]">
-              Prologo
+              Prólogo
             </p>
             <div className="space-y-3 text-[14px] leading-6 text-white/72">
               {quest.intro.map((paragraph) => (
@@ -318,25 +312,6 @@ function MobileQuestCard({
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-between gap-3">
-        <button
-          type="button"
-          onClick={onPrevious}
-          className="hud-label inline-flex min-h-11 flex-1 items-center justify-center rounded-2xl border border-[#224222] bg-[rgba(0,18,0,0.4)] px-4 text-[11px] text-white/78 transition hover:border-[var(--line-strong)] hover:text-white"
-        >
-          Anterior
-        </button>
-        <div className="rounded-2xl border border-[#224222] bg-[rgba(0,18,0,0.34)] px-4 py-3 text-[11px] tracking-[0.16em] text-[var(--accent-soft)]">
-          {String(currentIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-        </div>
-        <button
-          type="button"
-          onClick={onNext}
-          className="hud-label inline-flex min-h-11 flex-1 items-center justify-center rounded-2xl border border-[#224222] bg-[rgba(0,18,0,0.4)] px-4 text-[11px] text-white/78 transition hover:border-[var(--line-strong)] hover:text-white"
-        >
-          Proximo
-        </button>
-      </div>
     </div>
   );
 }
@@ -528,18 +503,6 @@ export function QuestsSection() {
   const activeQuestIndex = questTabs.findIndex((quest) => quest.id === activeQuestId);
   const activeQuest = questTabs[activeQuestIndex] ?? questTabs[0];
 
-  const goToPreviousQuest = () => {
-    const previousIndex =
-      activeQuestIndex <= 0 ? questTabs.length - 1 : activeQuestIndex - 1;
-    setActiveQuestId(questTabs[previousIndex].id);
-  };
-
-  const goToNextQuest = () => {
-    const nextIndex =
-      activeQuestIndex >= questTabs.length - 1 ? 0 : activeQuestIndex + 1;
-    setActiveQuestId(questTabs[nextIndex].id);
-  };
-
   return (
     <section
       id="quests"
@@ -568,9 +531,6 @@ export function QuestsSection() {
           <MobileQuestCard
             quest={activeQuest}
             currentIndex={activeQuestIndex}
-            total={questTabs.length}
-            onPrevious={goToPreviousQuest}
-            onNext={goToNextQuest}
             onOpenPreview={setPreviewQuest}
           />
 

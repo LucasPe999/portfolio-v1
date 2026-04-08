@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navItems = [
-  { label: "Inicio", href: "#inicio" },
+  { label: "Início", href: "#inicio" },
   { label: "Skills", href: "#skills" },
   { label: "Quests", href: "#quests" },
   { label: "Background", href: "#" },
@@ -190,7 +190,7 @@ export function TopNav() {
               <div className="absolute inset-x-6 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(107,217,107,0.38),transparent)]" />
               <div className="rounded-[22px] border border-white/6 bg-[radial-gradient(circle_at_top,rgba(107,217,107,0.1),transparent_58%)] p-3">
                 <p className="hud-label text-[10px] tracking-[0.28em] text-[var(--accent-soft)]">
-                  Navigation
+                  Navegação
                 </p>
                 <div className="mt-3 space-y-2">
                   {navItems.map((item) => {

@@ -436,22 +436,16 @@ export function MapPreview() {
             <div>
               <h1 className="max-w-[16rem] font-[family:var(--font-display)] text-[2.45rem] font-bold uppercase leading-[0.9] text-white [text-shadow:0_10px_32px_rgba(0,0,0,0.55)]">
                 Design que conecta.
-                <span className="block text-[var(--accent-soft)]">Experiencias</span>
+                <span className="block text-[var(--accent-soft)]">Experiências</span>
                 que transformam
               </h1>
               <p className="mt-4 max-w-[18rem] text-[15px] leading-6 text-white/74">
-                Explore meu mapa de habilidades, conheca meus projetos e descubra como
+                Explore meu mapa de habilidades, conheça meus projetos e descubra como
                 transformo ideias em produtos digitais de alto impacto.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <a
-                href="#skills"
-                className="hud-label inline-flex min-h-11 items-center rounded-2xl bg-[linear-gradient(180deg,#93ff9a_0%,#57e66b_100%)] px-5 text-[11px] text-slate-950 shadow-[0_0_24px_rgba(126,255,163,0.28)] transition hover:brightness-110"
-              >
-                Explorar skills
-              </a>
               <a
                 href="#quests"
                 className="hud-label inline-flex min-h-11 items-center rounded-2xl border border-white/12 bg-white/[0.04] px-5 text-[11px] text-white/76 backdrop-blur-[4px] transition hover:border-white/20 hover:text-white"
@@ -464,7 +458,7 @@ export function MapPreview() {
           <div className="relative z-10 mt-12 flex items-end justify-between gap-4">
             <div className="max-w-[10.5rem] rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.48)] px-4 py-3 backdrop-blur-[5px]">
               <p className="text-[11px] font-bold tracking-[0.16em] text-[var(--accent-soft)]">
-                MISSAO ATUAL
+                MISSÃO ATUAL
               </p>
               <p className="mt-2 text-[12px] leading-5 text-white/66">
                 Criar produtos digitais com clareza, impacto e atmosfera premium.
@@ -488,7 +482,7 @@ export function MapPreview() {
             <p className="text-[11px] tracking-[0.16em] text-[var(--accent-soft)]">PROGRESSO</p>
             <div className="mt-3 flex items-center justify-between">
               <span className="font-[family:var(--font-display)] text-[22px] text-white">75%</span>
-              <span className="text-[12px] text-white/58">missao principal</span>
+              <span className="text-[12px] text-white/58">missão principal</span>
             </div>
             <div className="mt-3 h-[6px] rounded-full bg-white/10">
               <div className="h-full w-[75%] rounded-full bg-[var(--accent-soft)] shadow-[0_0_18px_rgba(107,217,107,0.45)]" />
@@ -496,7 +490,7 @@ export function MapPreview() {
           </div>
 
           <div className="rounded-[22px] border border-[#224222] bg-[rgba(0,18,0,0.38)] p-4 backdrop-blur-[4px]">
-            <p className="text-[11px] tracking-[0.16em] text-[var(--accent-soft)]">NIVEL ATUAL</p>
+            <p className="text-[11px] tracking-[0.16em] text-[var(--accent-soft)]">NÍVEL ATUAL</p>
             <div className="mt-3 flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[rgba(107,217,107,0.08)] font-[family:var(--font-display)] text-[18px] text-[var(--accent-soft)]">
                 7
