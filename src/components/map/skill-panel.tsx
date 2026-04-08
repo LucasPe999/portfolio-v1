@@ -6,6 +6,7 @@ type SkillProject = {
   description: string;
   image: string;
   imageContain?: boolean;
+  imageClassName?: string;
   hideButton?: boolean;
   buttonHref?: string;
 };
@@ -145,7 +146,11 @@ export function SkillPanel({
                     src={project.image}
                     alt={project.title}
                     fill
-                    className={project.imageContain ? "object-contain p-2" : "object-cover"}
+                    className={
+                      project.imageContain
+                        ? `object-contain p-2 ${project.imageClassName ?? ""}`
+                        : `object-cover ${project.imageClassName ?? ""}`
+                    }
                   />
                 </div>
 

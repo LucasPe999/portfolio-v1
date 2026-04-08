@@ -51,12 +51,12 @@ const skills = [
 ];
 
 const toolPositions = [
-  "left-[50%] top-[10px]",
-  "left-[84.5%] top-[34.5%]",
-  "left-[82.5%] top-[66.5%]",
-  "left-[50%] top-[86.5%]",
-  "left-[18%] top-[66.5%]",
-  "left-[16%] top-[35.5%]",
+  "left-[51%] top-[38px]",
+  "left-[86.5%] top-[34.5%]",
+  "left-[86.5%] top-[76.5%]",
+  "left-[50%] top-[100.5%]",
+  "left-[13%] top-[80.5%]",
+  "left-[12%] top-[35.5%]",
 ];
 
 function RadarChart() {
@@ -73,7 +73,7 @@ function RadarChart() {
     .join(" ");
 
   return (
-    <div className="relative mx-auto h-[272px] w-[326px]">
+    <div className="relative mx-auto h-[320px] w-[326px]">
       <svg viewBox="0 0 286 262" className="absolute inset-0 h-full w-full" aria-hidden="true">
         <g transform="translate(9 15)">
           {[20, 40, 60, 80, 100].map((r) => (
@@ -122,12 +122,14 @@ function RadarChart() {
       {toolPositions.map((position, index) => (
         <div key={position} className={`absolute ${position} -translate-x-1/2 -translate-y-1/2`}>
           <Image
-            src={toolIcons[index]}
-            alt=""
-            width={24}
-            height={24}
-            className="h-6 w-6 object-contain"
-          />
+  src={toolIcons[index]}
+  alt=""
+  width={index === 5 ? 36 : 24}
+  height={index === 5 ? 36 : 24}
+  className={`object-contain ${
+    index === 5 ? "h-9 w-9" : "h-6 w-6"
+  }`}
+/>
         </div>
       ))}
     </div>
@@ -161,8 +163,8 @@ export function SkillsSection() {
           <Image src={swordIcon} alt="" width={32} height={32} className="h-8 w-8 object-contain scale-x-[-1]" />
         </div>
 
-        <div className="mt-8 grid w-full gap-8 lg:grid-cols-[250px_362px_522px] lg:items-start lg:justify-start lg:gap-[76px] lg:px-[78px] lg:pt-8">
-          <div className="relative flex h-[360px] items-center justify-center">
+        <div className="mt-8 grid w-full gap-8 lg:grid-cols-[364px_362px_522px] lg:items-start lg:justify-start lg:gap-[76px] lg:px-[78px] lg:pt-8">
+          <div className="relative flex h-[440px] items-center justify-center">
             <div className="relative h-[380px] w-[220px] overflow-hidden rounded-[88px]">
               <Image
                 src="/gifs/gif-character.gif"
@@ -174,7 +176,7 @@ export function SkillsSection() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] px-4 pb-[26px] pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] backdrop-blur-[2px]">
+          <div className="relative overflow-hidden rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] px-4 pb-[26px] pt-4 min-h-[435px]">
             <p className="relative text-center font-[family:var(--font-body)] text-[21.18px] font-normal tracking-normal text-[var(--accent-soft)]">
               FERRAMENTAS
             </p>

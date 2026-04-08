@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 
 const questsBackground =
   "https://www.figma.com/api/mcp/asset/8fa8733b-a195-4ce4-b0a2-4306c45454e5";
@@ -31,6 +31,7 @@ type QuestTab = {
   context: string;
   intro: string[];
   scale: string[];
+  platformUrl?: string;
 };
 
 const questTabs: QuestTab[] = [
@@ -56,6 +57,7 @@ const questTabs: QuestTab[] = [
       "Versão mobile.",
       "Design system robusto e organizado.",
     ],
+    platformUrl: "https://app.furion.ai/auth/login",
   },
   {
     id: "kolto",
@@ -239,13 +241,25 @@ function MobileQuestCard({
         <div className="space-y-5 p-5">
           <p className="text-[14px] leading-6 text-white/74">{quest.description}</p>
 
-          <button
-            type="button"
-            className="inline-flex min-h-12 w-full items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
-          >
-            Acessar plataforma
-            <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
-          </button>
+          {quest.platformUrl ? (
+            <a
+              href={quest.platformUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
+            >
+              Acessar plataforma
+              <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
+            </a>
+          ) : (
+            <button
+              type="button"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
+            >
+              Acessar plataforma
+              <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
+            </button>
+          )}
 
           <div className="grid grid-cols-3 gap-3">
             <div className="rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.42)] p-3">
@@ -405,13 +419,25 @@ function ActiveQuestFolder({
                   </CardDescription>
                 </div>
 
-                <button
-                  type="button"
-                  className="inline-flex h-10 shrink-0 items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
-                >
-                  Acessar Plataforma
-                  <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
-                </button>
+                {quest.platformUrl ? (
+                  <a
+                    href={quest.platformUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex h-10 shrink-0 items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
+                  >
+                    Acessar Plataforma
+                    <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="inline-flex h-10 shrink-0 items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
+                  >
+                    Acessar Plataforma
+                    <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
+                  </button>
+                )}
               </div>
             </CardHeader>
 
@@ -560,17 +586,6 @@ export function QuestsSection() {
               </TabsContent>
             ))}
 
-            <TabsList className="mt-6 grid grid-cols-2 gap-2">
-              {questTabs.map((quest) => (
-                <TabsTrigger
-                  key={quest.id}
-                  value={quest.id}
-                  className="rounded-[12px] border border-[#365333] bg-[rgba(20,30,20,0.78)] px-4 py-3 text-left font-[family:var(--font-display)] text-[13px] uppercase tracking-[0.04em] text-white/70 transition data-[state=active]:border-[#4f8f49] data-[state=active]:bg-[rgba(18,34,18,0.95)] data-[state=active]:text-white data-[state=active]:shadow-[0_0_18px_rgba(107,217,107,0.12)]"
-                >
-                  {quest.label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
           </Tabs>
         </article>
       </div>

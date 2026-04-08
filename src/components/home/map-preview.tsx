@@ -31,6 +31,7 @@ type HeroNode = {
       title: string;
       description: string;
       image: string;
+      imageClassName?: string;
       hideButton?: boolean;
       buttonHref?: string;
     };
@@ -98,6 +99,7 @@ const heroNodes: HeroNode[] = [
         description:
           "Plataforma de sorteios online com bilhetes instantâneos, raspadinhas e ferramentas de análise para cada sorteio.",
         image: "https://www.figma.com/api/mcp/asset/bf9edb8e-fe8c-4e7d-a735-a39f0c07aa22",
+        imageClassName: "scale-[1.7]",
         hideButton: true,
       },
     },
@@ -342,8 +344,8 @@ export function MapPreview() {
           </div>
         </motion.div>
 
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-[10] w-[600px] bg-[linear-gradient(90deg,rgba(0,0,0,0.98)_0%,rgba(0,0,0,0.82)_42%,rgba(0,0,0,0)_100%)]" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-[10] w-[900px] bg-[linear-gradient(270deg,rgba(0,0,0,0.96)_0%,rgba(0,0,0,0.78)_40%,rgba(0,0,0,0)_100%)]" />
+        <div className="pointer-events-none absolute inset-y-0 left-30 z-[10] w-[600px] bg-[linear-gradient(90deg,rgba(0,0,0,0.98)_0%,rgba(0,0,0,0.82)_42%,rgba(0,0,0,0)_100%)]" />
+        <div className="pointer-events-none absolute inset-y-0 right-30 z-[10] w-[900px] bg-[linear-gradient(270deg,rgba(0,0,0,0.96)_0%,rgba(0,0,0,0.78)_40%,rgba(0,0,0,0)_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[10] h-[200px] bg-[linear-gradient(0deg,rgba(0,0,0,0.98)_0%,rgba(0,0,0,0.82)_42%,rgba(0,0,0,0)_100%)]" />
 
         {heroConnections.map((connection) => (
