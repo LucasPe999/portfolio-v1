@@ -66,7 +66,7 @@ const heroNodes: HeroNode[] = [
         title: "FURION",
         description:
           "Ferramenta com inteligência artificial focada em marketing digital de alta performance, projetada para automatizar e otimizar a criação de anúncios online, vendas e estratégias de conteúdo.",
-        image: "https://www.figma.com/api/mcp/asset/abe3ab74-7c82-4898-8183-a72e1a2e4a4d",
+        image: "https://www.figma.com/api/mcp/asset/0c29fd76-da06-4b9e-adde-a2dee8688dee",
         buttonHref: "#quests",
       },
     },
@@ -157,7 +157,7 @@ const heroNodes: HeroNode[] = [
         description:
           "Ferramenta completa para criar páginas, funis, proteger links, gerenciar leads e enviar mensagens personalizadas.",
         image: "https://www.figma.com/api/mcp/asset/0c29fd76-da06-4b9e-adde-a2dee8688dee",
-        hideButton: true,
+        buttonHref: "#quests-clickmax",
       },
     },
   },
@@ -291,7 +291,7 @@ export function MapPreview() {
           </div>
         </div>
 
-        <div className="absolute left-[1430px] top-8 z-20 w-[240px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] p-6 backdrop-blur-[2px]">
+        <div className="absolute left-[1430px] top-8 z-20 w-[240px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] p-6 backdrop-blur-[10px]">
           <div className="flex items-start gap-4">
             <div className="relative flex h-[52px] w-[52px] items-center justify-center">
   <div

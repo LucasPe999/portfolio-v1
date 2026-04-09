@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -9,14 +9,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const questsBackground = "/quests-background.png";
 const questsIcon = "/icons/map.svg";
 const arrowRight =
   "https://www.figma.com/api/mcp/asset/b84950e5-dfb8-4dc2-a693-76494b7e71e3";
-const activeFolderPath =
-  "M24 1H126.605C132.087 1.00009 137.389 2.9584 141.555 6.52148L182.006 41.1191C186.534 44.9921 192.297 47.1201 198.256 47.1201H1433.3C1446.01 47.1201 1456.3 57.4178 1456.3 70.1201V765.654C1456.3 778.357 1446.01 788.654 1433.3 788.654H24C11.2975 788.654 1.00013 778.357 1 765.654V24C1 11.2975 11.2975 1 24 1Z";
+const clickmaxPreviewImage =
+  "https://www.figma.com/api/mcp/asset/0cd7f8fc-71af-4dae-ad01-05aa6d579ff8";
 
 type QuestTab = {
   id: string;
@@ -103,6 +103,7 @@ const questTabs: QuestTab[] = [
       "Padrões reutilizáveis.",
       "Maior consistencia entre paginas.",
     ],
+    platformUrl: "https://clickmax.io/",
   },
   {
     id: "ecom",
@@ -327,224 +328,61 @@ function MobileQuestCard({
   );
 }
 
-function ActiveQuestFolder({
-  quest,
-  onOpenPreview,
-}: {
-  quest: QuestTab;
-  onOpenPreview: (quest: QuestTab) => void;
-}) {
-  return (
-    <div className="relative aspect-[1458/790] w-full">
-      <svg
-        viewBox="0 0 1458 790"
-        preserveAspectRatio="none"
-        className="absolute inset-0 h-full w-full"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="active-folder-fill" x1="0" y1="0" x2="544.28" y2="344.35" gradientUnits="userSpaceOnUse">
-            <stop stopColor="rgba(17,8,34,0.92)" />
-            <stop offset="1" stopColor="rgba(49,25,78,0.64)" />
-          </linearGradient>
-          <radialGradient
-            id="active-folder-stroke"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientUnits="userSpaceOnUse"
-            gradientTransform="translate(315 246.999) rotate(19.6629) scale(1276.43 1276.43)"
-          >
-            <stop offset="0.0513232" stopColor="#4d2f7a" />
-            <stop offset="0.477282" stopColor="#bf81ff" />
-            <stop offset="1" stopColor="#4d2f7a" />
-          </radialGradient>
-        </defs>
-        <path d={activeFolderPath} fill="url(#active-folder-fill)" stroke="url(#active-folder-stroke)" strokeWidth="2" />
-      </svg>
-
-      <div className="pointer-events-none absolute left-[-1%] top-[1%] z-10 flex h-[6.6%] w-[13.2%] items-center justify-center">
-        <Image
-          src="/icons/furion-logo.svg"
-          alt="FURION"
-          width={121}
-          height={20}
-          className="h-auto w-[74%] max-w-[121px] object-contain"
-        />
-      </div>
-
-      <div className="absolute left-[4.87%] right-[2.61%] top-[12.15%] bottom-[4.3%] flex gap-[1.1%]">
-        <button
-          type="button"
-          onClick={() => onOpenPreview(quest)}
-          className="group relative w-[31.13%] overflow-hidden rounded-[12px] text-left"
-        >
-          <Image
-            src={quest.preview}
-            alt={`Preview do projeto ${quest.label}`}
-            fill
-            priority
-            className="object-cover object-center transition duration-300 group-hover:scale-[1.03]"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.18))]" />
-          <div className="absolute right-4 top-4 rounded-full border border-white/12 bg-black/35 px-3 py-1 text-[10px] tracking-[0.16em] text-white/80 backdrop-blur-md">
-            AMPLIAR
-          </div>
-        </button>
-
-        <div className="flex-1 rounded-[12px] border border-[#4d2f7a] bg-[rgba(15,7,29,0.9)] px-[2.95%] py-[3.8%]">
-          <Card className="border-none bg-transparent">
-            <CardHeader className="gap-[4.6%] p-0">
-              <div className="flex items-start justify-between gap-6">
-                <div className="max-w-[68%]">
-                  <CardTitle className="font-[family:var(--font-display)] text-[clamp(22px,2.35vw,34px)] uppercase leading-none tracking-[0.01em] text-[var(--accent-soft)]">
-                    {quest.title}
-                  </CardTitle>
-                  <CardDescription className="mt-[2.4%] text-[clamp(10px,0.8vw,12px)] leading-[1.24] text-[#b9b9b9]">
-                    {quest.description}
-                  </CardDescription>
-                </div>
-
-                {quest.platformUrl ? (
-                  <a
-                    href={quest.platformUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.9)] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-[#d6b8ff] transition hover:border-[var(--accent-soft)] hover:text-[#f3e8ff] hover:shadow-[0_0_18px_rgba(191,129,255,0.24)]"
-                  >
-                    <span className="block text-center">Acessar Plataforma</span>
-                    <Image
-                      src={arrowRight}
-                      alt=""
-                      width={16}
-                      height={16}
-                      className="absolute right-5 h-4 w-4"
-                    />
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.9)] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-[#d6b8ff] transition hover:border-[var(--accent-soft)] hover:text-[#f3e8ff] hover:shadow-[0_0_18px_rgba(191,129,255,0.24)]"
-                  >
-                    <span className="block text-center">Acessar Plataforma</span>
-                    <Image
-                      src={arrowRight}
-                      alt=""
-                      width={16}
-                      height={16}
-                      className="absolute right-5 h-4 w-4"
-                    />
-                  </button>
-                )}
-              </div>
-            </CardHeader>
-
-            <CardContent className="mt-[4.2%] flex flex-col gap-[4.8%] p-0">
-              <section className="grid gap-[3.8%] lg:grid-cols-[210px_minmax(0,1fr)]">
-                <div className="space-y-7">
-                  <div className="space-y-4">
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between text-[12px] leading-none">
-                        <span className="text-[var(--accent-soft)]">COMPLEXIDADE</span>
-                        <span className="text-[#b9b9b9]">MUITO ALTA</span>
-                      </div>
-                      <div className="h-[6px] w-full rounded-full bg-[rgba(191,129,255,0.16)]">
-                        <div className="h-full w-full rounded-full bg-[var(--accent-soft)] shadow-[0_0_18px_rgba(191,129,255,0.52)]" />
-                      </div>
-                    </div>
-
-                    <dl className="space-y-1 text-[12px] leading-[1.24]">
-                      <div className="flex items-center justify-between gap-4">
-                        <dt className="text-[var(--accent-soft)]">ANO</dt>
-                        <dd className="text-[#b9b9b9]">{quest.year}</dd>
-                      </div>
-                      <div className="flex items-center justify-between gap-4">
-                        <dt className="text-[var(--accent-soft)]">CLIENTE</dt>
-                        <dd className="text-[#b9b9b9]">{quest.client}</dd>
-                      </div>
-                      <div className="flex items-center justify-between gap-4">
-                        <dt className="text-[var(--accent-soft)]">DESENVOLVIMENTO</dt>
-                        <dd className="text-[#b9b9b9]">{quest.duration}</dd>
-                      </div>
-                    </dl>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <InfoDivider title="CONTEXTO" />
-                  <p className="text-[12px] leading-[1.24] text-[#b9b9b9]">
-                    {quest.context}
-                  </p>
-                </div>
-              </section>
-
-              <section className="mt-2 space-y-3">
-                <h3 className="font-[family:var(--font-display)] text-[16px] text-[var(--accent-soft)]">
-                  Prólogo - Início do desenvolvimento
-                </h3>
-                <div className="space-y-4 text-[12px] leading-[1.24] text-[#b9b9b9]">
-                  {quest.intro.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                  <ul className="list-disc space-y-0.5 pl-4">
-                    {introBullets.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </section>
-
-              <section className="mt-3 space-y-3">
-                <h3 className="font-[family:var(--font-display)] text-[16px] text-[var(--accent-soft)]">
-                  Boss - Escalabilidade do projeto
-                </h3>
-                <div className="space-y-4 text-[12px] leading-[1.24] text-[#b9b9b9]">
-                  <p>
-                    Após validar todos os pontos necessários, foi realizada a escalabilidade
-                    do projeto, focando em desenvolver todas as telas necessárias, sempre
-                    focando em consistência visual e boas práticas de design, além de focar
-                    muito em entregar para o time de desenvolvimento um projeto organizado.
-                  </p>
-                  <ul className="list-disc space-y-0.5 pl-4">
-                    {quest.scale.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </section>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function QuestsSection() {
   const [activeQuestId, setActiveQuestId] = useState(questTabs[0].id);
+  const [activeProjectTab, setActiveProjectTab] = useState("overview");
   const [previewQuest, setPreviewQuest] = useState<QuestTab | null>(null);
   const activeQuestIndex = questTabs.findIndex((quest) => quest.id === activeQuestId);
   const activeQuest = questTabs[activeQuestIndex] ?? questTabs[0];
+  const furionQuest = questTabs[0];
+  const clickmaxQuest = questTabs.find((quest) => quest.id === "clickmax") ?? questTabs[0];
+
+  useEffect(() => {
+    const syncQuestFromHash = () => {
+      if (window.location.hash === "#quests-clickmax") {
+        setActiveQuestId("clickmax");
+        setActiveProjectTab("analytics");
+      } else if (window.location.hash === "#quests" || window.location.hash === "#quests-furion") {
+        setActiveQuestId("furion");
+        setActiveProjectTab("overview");
+      }
+    };
+
+    syncQuestFromHash();
+    window.addEventListener("hashchange", syncQuestFromHash);
+
+    return () => window.removeEventListener("hashchange", syncQuestFromHash);
+  }, []);
+
+  useEffect(() => {
+    if (activeProjectTab === "overview") {
+      setActiveQuestId("furion");
+    } else if (activeProjectTab === "analytics") {
+      setActiveQuestId("clickmax");
+    }
+  }, [activeProjectTab]);
 
   return (
-    <section
-      id="quests"
-      className="relative overflow-hidden scroll-mt-24"
-      style={{
-        ["--accent-soft" as string]: "#bf81ff",
-        backgroundColor: "#05030a",
-        backgroundImage: `url("${questsBackground}")`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center center",
-        backgroundSize: "cover",
-      }}
-    >
+    <>
+      <div id="quests-clickmax" className="relative -top-16" aria-hidden="true" />
+      <section
+        id="quests"
+        className="relative overflow-hidden scroll-mt-16"
+        style={{
+          ["--accent-soft" as string]: "#ffffff",
+          backgroundColor: "#05030a",
+          backgroundImage: `url("${questsBackground}")`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          backgroundSize: "cover",
+        }}
+      >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(191,129,255,0.18),transparent_36%),linear-gradient(180deg,rgba(4,2,10,0.42),rgba(8,4,18,0.52)_48%,rgba(2,1,7,0.82))]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(180,124,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(180,124,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px] opacity-30" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-[linear-gradient(180deg,rgba(203,149,255,0)_0%,rgba(206,158,255,0.08)_38%,rgba(206,158,255,0.2)_100%)] blur-2xl" />
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[1920px] flex-col items-center px-4 pb-14 pt-8 sm:px-6 lg:px-[94px] lg:pb-20">
-        <div className="flex items-center gap-4 rounded-[12px] px-4 py-4">
+      <div className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[1920px] flex-col items-center px-4 pb-14 pt-0 sm:px-6 lg:px-[94px] lg:pb-20">
+        <div className="flex items-center gap-4 rounded-[12px] px-4 py-4 mt-6">
           <Image src={questsIcon} alt="" width={32} height={32} className="h-8 w-8" />
           <h2 className="font-[family:var(--font-display)] text-[32px] uppercase tracking-[0.06em] text-[var(--accent-soft)]">
             Quests
@@ -552,26 +390,353 @@ export function QuestsSection() {
           <Image src={questsIcon} alt="" width={32} height={32} className="h-8 w-8 scale-x-[-1]" />
         </div>
 
-        <article className="relative mt-8 w-full max-w-[1458px]">
-          <MobileQuestCard
-            quest={activeQuest}
-            currentIndex={activeQuestIndex}
-            onOpenPreview={setPreviewQuest}
-          />
+        <article className="relative mt-6 w-full max-w-[1458px]">
+          <div className="lg:hidden">
+            <Tabs
+              defaultValue="overview"
+              value={activeProjectTab}
+              onValueChange={setActiveProjectTab}
+              className="w-full"
+            >
+              <TabsList className="mb-4 inline-flex rounded-[14px] border border-white/10 bg-white/8 p-1 shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md">
+                <TabsTrigger
+                  value="overview"
+                  className="rounded-[10px] px-4 py-2 text-[14px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black"
+                >
+                  Furion
+                </TabsTrigger>
+                <TabsTrigger
+                  value="analytics"
+                  className="rounded-[10px] px-4 py-2 text-[14px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black"
+                >
+                  Clickmax
+                </TabsTrigger>
+              </TabsList>
 
-          <Tabs
-            defaultValue={questTabs[0].id}
-            value={activeQuestId}
-            onValueChange={setActiveQuestId}
-            className="hidden w-full lg:block"
-          >
-            {questTabs.map((quest) => (
-              <TabsContent key={quest.id} value={quest.id}>
-                <ActiveQuestFolder quest={quest} onOpenPreview={setPreviewQuest} />
+              <TabsContent value="overview">
+                <MobileQuestCard
+                  quest={furionQuest}
+                  currentIndex={0}
+                  onOpenPreview={setPreviewQuest}
+                />
               </TabsContent>
-            ))}
 
-          </Tabs>
+              <TabsContent value="analytics">
+                <MobileQuestCard
+                  quest={clickmaxQuest}
+                  currentIndex={2}
+                  onOpenPreview={setPreviewQuest}
+                />
+              </TabsContent>
+            </Tabs>
+          </div>
+
+          <div className="mt-14 hidden lg:block">
+            <Tabs
+              defaultValue="overview"
+              value={activeProjectTab}
+              onValueChange={setActiveProjectTab}
+              className="mx-auto w-full max-w-[1458px]"
+            >
+              <TabsList className="inline-flex rounded-[14px] border border-white/10 bg-white/8 p-1 shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md">
+                <TabsTrigger
+                  value="overview"
+                  className="rounded-[10px] px-4 py-2 text-[15px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black"
+                >
+                  Furion
+                </TabsTrigger>
+                <TabsTrigger
+                  value="analytics"
+                  className="rounded-[10px] px-4 py-2 text-[15px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black"
+                >
+                  Clickmax
+                </TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="overview" className="mt-4">
+                <Card className="rounded-[18px] border border-white/12 bg-white/6 text-white shadow-none backdrop-blur-md">
+                  <CardContent className="grid gap-6 p-6 lg:grid-cols-[430px_minmax(0,1fr)]">
+                    <button
+                      type="button"
+                      onClick={() => setPreviewQuest(furionQuest)}
+                      className="group relative min-h-[540px] overflow-hidden rounded-[16px] border border-white/10 text-left"
+                    >
+                      <Image
+                        src={furionQuest.preview}
+                        alt={`Preview do projeto ${furionQuest.label}`}
+                        fill
+                        priority
+                        className="object-cover object-center transition duration-300 group-hover:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.2))]" />
+                      <div className="absolute right-4 top-4 rounded-full border border-white/12 bg-black/35 px-3 py-1 text-[10px] tracking-[0.16em] text-white/80 backdrop-blur-md">
+                        AMPLIAR
+                      </div>
+                    </button>
+
+                    <div className="rounded-[16px] border border-white/10 bg-[rgba(15,7,29,0.72)] p-6">
+                      <CardHeader className="gap-4 p-0">
+                        <div className="flex items-start justify-between gap-6">
+                          <div className="max-w-[68%]">
+                            <CardTitle className="font-[family:var(--font-display)] text-[clamp(22px,2.35vw,34px)] uppercase leading-none tracking-[0.01em] text-white">
+                              {furionQuest.title}
+                            </CardTitle>
+                            <CardDescription className="mt-2 text-[clamp(10px,0.8vw,12px)] leading-[1.35] text-white/72">
+                              {furionQuest.description}
+                            </CardDescription>
+                          </div>
+
+                          {furionQuest.platformUrl ? (
+                            <a
+                              href={furionQuest.platformUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-white/14 bg-white/[0.04] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-white transition hover:border-white/30 hover:bg-white/[0.07]"
+                            >
+                              <span className="block text-center">Acessar plataforma</span>
+                              <Image
+                                src={arrowRight}
+                                alt=""
+                                width={16}
+                                height={16}
+                                className="absolute right-5 h-4 w-4"
+                              />
+                            </a>
+                          ) : null}
+                        </div>
+                      </CardHeader>
+
+                      <CardContent className="mt-6 flex flex-col gap-6 p-0">
+                        <section className="grid gap-6 lg:grid-cols-[210px_minmax(0,1fr)]">
+                          <div className="space-y-6">
+                            <div className="space-y-1">
+                              <div className="flex items-center justify-between text-[12px] leading-none">
+                                <span className="text-white">COMPLEXIDADE</span>
+                                <span className="text-white/72">MUITO ALTA</span>
+                              </div>
+                              <div className="h-[6px] w-full rounded-full bg-white/10">
+                                <div className="h-full w-full rounded-full bg-white shadow-[0_0_18px_rgba(255,255,255,0.28)]" />
+                              </div>
+                            </div>
+
+                            <dl className="space-y-1 text-[12px] leading-[1.24]">
+                              <div className="flex items-center justify-between gap-4">
+                                <dt className="text-white">ANO</dt>
+                                <dd className="text-white/72">{furionQuest.year}</dd>
+                              </div>
+                              <div className="flex items-center justify-between gap-4">
+                                <dt className="text-white">CLIENTE</dt>
+                                <dd className="text-white/72">{furionQuest.client}</dd>
+                              </div>
+                              <div className="flex items-center justify-between gap-4">
+                                <dt className="text-white">DESENVOLVIMENTO</dt>
+                                <dd className="text-white/72">{furionQuest.duration}</dd>
+                              </div>
+                            </dl>
+                          </div>
+
+                          <div className="space-y-4">
+                            <InfoDivider title="CONTEXTO" />
+                            <p className="text-[12px] leading-[1.35] text-white/72">
+                              {furionQuest.context}
+                            </p>
+                          </div>
+                        </section>
+
+                        <section className="space-y-3">
+                          <h3 className="font-[family:var(--font-display)] text-[16px] text-white">
+                            Prólogo - Início do desenvolvimento
+                          </h3>
+                          <div className="space-y-4 text-[12px] leading-[1.35] text-white/72">
+                            {furionQuest.intro.map((paragraph) => (
+                              <p key={paragraph}>{paragraph}</p>
+                            ))}
+                            <ul className="list-disc space-y-0.5 pl-4">
+                              {introBullets.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </section>
+
+                        <section className="space-y-3">
+                          <h3 className="font-[family:var(--font-display)] text-[16px] text-white">
+                            Boss - Escalabilidade do projeto
+                          </h3>
+                          <div className="space-y-4 text-[12px] leading-[1.35] text-white/72">
+                            <p>
+                              Após validar todos os pontos necessários, foi realizada a
+                              escalabilidade do projeto, focando em desenvolver todas as
+                              telas necessárias, sempre focando em consistência visual e
+                              boas práticas de design, além de focar muito em entregar para
+                              o time de desenvolvimento um projeto organizado.
+                            </p>
+                            <ul className="list-disc space-y-0.5 pl-4">
+                              {furionQuest.scale.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </section>
+                      </CardContent>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="analytics" className="mt-4">
+                <Card className="overflow-hidden rounded-[18px] border border-white/12 bg-white/6 text-white shadow-none backdrop-blur-md">
+                  <CardContent className="grid min-h-[686px] gap-6 p-6 lg:grid-cols-[430px_minmax(0,1fr)]">
+                    <div className="relative min-h-[540px] overflow-hidden rounded-[16px] border border-white/10">
+                      <Image
+                        src={clickmaxPreviewImage}
+                        alt="Preview do projeto Clickmax"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+
+                    <div className="h-full rounded-[16px] border border-white/10 bg-[rgba(15,7,29,0.72)] p-6">
+                      <CardHeader className="gap-4 p-0">
+                        <div className="flex items-start justify-between gap-6">
+                          <div className="max-w-[68%]">
+                            <CardTitle className="font-[family:var(--font-display)] text-[clamp(22px,2.35vw,34px)] uppercase leading-none tracking-[0.01em] text-white">
+                              CLICKMAX EQUALIZATION
+                            </CardTitle>
+                            <CardDescription className="mt-2 text-[clamp(10px,0.8vw,12px)] leading-[1.35] text-white/72">
+                              Plataforma voltada para gestão e otimização de marketing digital,
+                              centralizando anúncios, produtos e métricas em um único ambiente. O
+                              produto foi pensado para facilitar a operação de campanhas, oferecendo
+                              controle, leitura clara de dados e eficiência na tomada de decisão.
+                            </CardDescription>
+                          </div>
+                          <a
+                            href="https://clickmax.io/"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-white/14 bg-white/[0.04] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-white transition hover:border-white/30 hover:bg-white/[0.07]"
+                          >
+                            <span className="block text-center">ACESSAR PLATAFORMA</span>
+                            <Image
+                              src={arrowRight}
+                              alt=""
+                              width={16}
+                              height={16}
+                              className="absolute right-5 h-4 w-4"
+                            />
+                          </a>
+                        </div>
+                      </CardHeader>
+
+                      <CardContent className="mt-4 flex flex-col gap-6 p-0">
+                        <section className="grid gap-6 lg:grid-cols-[210px_minmax(0,1fr)]">
+                          <div className="w-[210px] shrink-0 space-y-7">
+                            <div className="space-y-1">
+                              <div className="flex items-center justify-between text-[12px]">
+                                <span className="text-white">COMPLEXIDADE</span>
+                                <span className="text-white/72">MUITO ALTA</span>
+                              </div>
+                              <div className="h-[6px] w-[210px] rounded-[500px] bg-white shadow-[0_0_18px_rgba(255,255,255,0.28)]" />
+                            </div>
+
+                            <dl className="space-y-1 text-[12px]">
+                              <div className="flex items-center justify-between">
+                                <dt className="text-white">ANO</dt>
+                                <dd className="text-white/72">2025</dd>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <dt className="text-white">CLIENTE</dt>
+                                <dd className="text-white/72">BILHON</dd>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <dt className="text-white">DESENVOLVIMENTO</dt>
+                                <dd className="text-white/72">3 MESES</dd>
+                              </div>
+                            </dl>
+                          </div>
+
+                          <div className="min-w-0 flex-1 space-y-2">
+                            <div className="space-y-1">
+                              <p className="text-[12px] text-white">CONTEXTO</p>
+                              <div className="h-px w-full bg-white/28" />
+                            </div>
+                            <p className="text-[12px] leading-[1.35] text-white/72">
+                              A proposta do projeto era finalizar as features que estavam
+                              faltando em 3 meses para que a plataforma estivesse pronta para
+                              ser lançada, Atuei com foco nas áreas de Funnel Builder, Workflow
+                              Builder, Área de Membros, Marketplace e Checkout diretamente com o
+                              time de designers do cliente, servindo como um momento de desafio e
+                              aprendizado diário para que todo o conteúdo proposto fosse entregue.
+                            </p>
+                          </div>
+                        </section>
+
+                        <section className="space-y-4">
+                          <h3 className="font-[family:var(--font-display)] text-[16px] text-white">
+                            Prólogo - Ambientação
+                          </h3>
+                          <div className="space-y-4 text-[12px] leading-[1.24] text-white/72">
+                            <p>
+                              Por ser um projeto rápido, foi necessário me ambientar rapidamente
+                              ao processo de desenvolvimento do cliente, além do entendimento
+                              completo da regra de negócio.
+                            </p>
+                            <p>
+                              Foi necessário atuar em mais de um projeto ao mesmo tempo para que
+                              o time de desenvolvedores pudesse iniciar o processo de produção no
+                              código, para isso foi definido weeklies para alinhamento das
+                              demandas e atualizações diárias do que era feito.
+                            </p>
+                            <p>
+                              Sendo assim, foquei em algumas frentes para que houvesse uma boa
+                              evolução e que ninguém ficasse travado.
+                            </p>
+                            <ul className="list-disc space-y-0.5 pl-4">
+                              <li>Estudo aplicado na regra de negócio dos projetos e benchmarking de propostas similares.</li>
+                              <li>Exploração diária junto ao time do cliente para melhor alinhamento.</li>
+                              <li>Apresentação de propostas de fluxos para que nada passasse sem aprovação.</li>
+                              <li>Clareza nos fluxos para o time de desenvolvimento.</li>
+                            </ul>
+                          </div>
+                        </section>
+
+                        <section className="space-y-4">
+                          <h3 className="font-[family:var(--font-display)] text-[16px] text-white">
+                            Boss - Entregas e novas features
+                          </h3>
+                          <div className="space-y-4 text-[12px] leading-[1.24] text-white/72">
+                            <p>
+                              O desenvolvimento foi totalmente focado em um roadmap criado, sendo
+                              assim, todas as entregas procuravam seguir o caminho proposto para
+                              que o time de desenvolvimento seguisse o plano inicialmente
+                              planejado, juntamente com isso, foram criadas novas features que
+                              eram atacadas simultaneamente.
+                            </p>
+                            <p>
+                              O modelo de trabalho foi o de atacar as frentes planejadas no
+                              roadmap para o desenvolvimento e criar as novas features para
+                              apresentação junto ao cliente.
+                            </p>
+                            <p>
+                              No final, foram entregues todas as tarefas escopadas no início,
+                              além das novas features que foram aparecendo durante o processo.
+                            </p>
+                            <ul className="list-disc space-y-0.5 pl-4">
+                              <li>Fluxo completo do Funnel builder.</li>
+                              <li>Fluxo completo e configurações do Workflow builder.</li>
+                              <li>Área de membros com a opção de personalização e modelo de visualização finalizada.</li>
+                              <li>Marketplace e features de checkout completas.</li>
+                            </ul>
+                          </div>
+                        </section>
+                      </CardContent>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+            </Tabs>
+          </div>
         </article>
       </div>
 
@@ -614,6 +779,7 @@ export function QuestsSection() {
           </div>
         </div>
       ) : null}
-    </section>
+      </section>
+    </>
   );
 }
