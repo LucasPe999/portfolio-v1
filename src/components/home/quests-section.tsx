@@ -631,7 +631,7 @@ export function QuestsSection() {
                       <CardContent className="mt-4 flex flex-col gap-6 p-0">
                         <section className="grid gap-6 lg:grid-cols-[210px_minmax(0,1fr)]">
                           <div className="w-[210px] shrink-0 space-y-7">
-                            <div className="space-y-1">
+                            <div className="space-y-0">
                               <div className="flex items-center justify-between text-[12px]">
                                 <span className="text-white">COMPLEXIDADE</span>
                                 <span className="text-white/72">MUITO ALTA</span>
@@ -639,7 +639,7 @@ export function QuestsSection() {
                               <div className="h-[6px] w-[210px] rounded-[500px] bg-white shadow-[0_0_18px_rgba(255,255,255,0.28)]" />
                             </div>
 
-                            <dl className="space-y-1 text-[12px]">
+                            <dl className="space-y-0 text-[12px]">
                               <div className="flex items-center justify-between">
                                 <dt className="text-white">ANO</dt>
                                 <dd className="text-white/72">2025</dd>
@@ -680,16 +680,11 @@ export function QuestsSection() {
                               Por ser um projeto rápido, foi necessário me ambientar rapidamente
                               ao processo de desenvolvimento do cliente, além do entendimento
                               completo da regra de negócio.
-                            </p>
-                            <p>
                               Foi necessário atuar em mais de um projeto ao mesmo tempo para que
                               o time de desenvolvedores pudesse iniciar o processo de produção no
                               código, para isso foi definido weeklies para alinhamento das
                               demandas e atualizações diárias do que era feito.
-                            </p>
-                            <p>
-                              Sendo assim, foquei em algumas frentes para que houvesse uma boa
-                              evolução e que ninguém ficasse travado.
+                                                          
                             </p>
                             <ul className="list-disc space-y-0.5 pl-4">
                               <li>Estudo aplicado na regra de negócio dos projetos e benchmarking de propostas similares.</li>
@@ -711,14 +706,10 @@ export function QuestsSection() {
                               que o time de desenvolvimento seguisse o plano inicialmente
                               planejado, juntamente com isso, foram criadas novas features que
                               eram atacadas simultaneamente.
-                            </p>
-                            <p>
-                              O modelo de trabalho foi o de atacar as frentes planejadas no
+                                                          O modelo de trabalho foi o de atacar as frentes planejadas no
                               roadmap para o desenvolvimento e criar as novas features para
                               apresentação junto ao cliente.
-                            </p>
-                            <p>
-                              No final, foram entregues todas as tarefas escopadas no início,
+                                                          No final, foram entregues todas as tarefas escopadas no início,
                               além das novas features que foram aparecendo durante o processo.
                             </p>
                             <ul className="list-disc space-y-0.5 pl-4">
