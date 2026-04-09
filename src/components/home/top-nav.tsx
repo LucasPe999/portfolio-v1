@@ -10,7 +10,7 @@ const navItems = [
   { label: "Skills", href: "#skills" },
   { label: "Quests", href: "#quests" },
   { label: "Background", href: "#background" },
-  { label: "Contato", href: "#" },
+  { label: "Contato", href: "#contato" },
 ];
 
 const trackedSections = [
@@ -18,6 +18,7 @@ const trackedSections = [
   { id: "skills", href: "#skills" },
   { id: "quests", href: "#quests" },
   { id: "background", href: "#background" },
+  { id: "contato", href: "#contato" },
 ];
 
 export function TopNav() {
