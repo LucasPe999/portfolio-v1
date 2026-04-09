@@ -11,9 +11,8 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 
-const questsBackground =
-  "https://www.figma.com/api/mcp/asset/8fa8733b-a195-4ce4-b0a2-4306c45454e5";
-const questsIcon = "/icons/map.png";
+const questsBackground = "/quests-background.png";
+const questsIcon = "/icons/map.svg";
 const arrowRight =
   "https://www.figma.com/api/mcp/asset/b84950e5-dfb8-4dc2-a693-76494b7e71e3";
 const activeFolderPath =
@@ -189,7 +188,7 @@ function InfoDivider({ title }: { title: string }) {
       <p className="text-[11px] uppercase tracking-[0.04em] text-[var(--accent-soft)]">
         {title}
       </p>
-      <div className="h-px w-full bg-[rgba(107,217,107,0.7)]" />
+      <div className="h-px w-full bg-[rgba(191,129,255,0.52)]" />
     </div>
   );
 }
@@ -205,11 +204,11 @@ function MobileQuestCard({
 }) {
   return (
     <div className="lg:hidden">
-      <div className="overflow-hidden rounded-[28px] border border-[#224222] bg-[linear-gradient(180deg,rgba(2,16,6,0.96),rgba(1,8,3,0.98))] shadow-[0_24px_60px_rgba(0,0,0,0.34),0_0_24px_rgba(107,217,107,0.08)]">
+      <div className="overflow-hidden rounded-[28px] border border-[#4d2f7a] bg-[linear-gradient(180deg,rgba(17,8,34,0.96),rgba(6,3,16,0.98))] shadow-[0_24px_60px_rgba(0,0,0,0.34),0_0_24px_rgba(191,129,255,0.12)]">
         <button
           type="button"
           onClick={() => onOpenPreview(quest)}
-          className="group relative block h-[220px] w-full overflow-hidden border-b border-[#224222] text-left"
+          className="group relative block h-[220px] w-full overflow-hidden border-b border-[#4d2f7a] text-left"
         >
           <Image
             src={quest.preview}
@@ -240,31 +239,43 @@ function MobileQuestCard({
               href={quest.platformUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-12 w-full items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
+              className="relative inline-flex min-h-12 w-full items-center justify-center rounded-[12px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.9)] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-[#d6b8ff] transition hover:border-[var(--accent-soft)] hover:text-[#f3e8ff] hover:shadow-[0_0_18px_rgba(191,129,255,0.24)]"
             >
-              Acessar plataforma
-              <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
+              <span className="block text-center">Acessar plataforma</span>
+              <Image
+                src={arrowRight}
+                alt=""
+                width={16}
+                height={16}
+                className="absolute right-5 h-4 w-4"
+              />
             </a>
           ) : (
             <button
               type="button"
-              className="inline-flex min-h-12 w-full items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
+              className="relative inline-flex min-h-12 w-full items-center justify-center rounded-[12px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.9)] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-[#d6b8ff] transition hover:border-[var(--accent-soft)] hover:text-[#f3e8ff] hover:shadow-[0_0_18px_rgba(191,129,255,0.24)]"
             >
-              Acessar plataforma
-              <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
+              <span className="block text-center">Acessar plataforma</span>
+              <Image
+                src={arrowRight}
+                alt=""
+                width={16}
+                height={16}
+                className="absolute right-5 h-4 w-4"
+              />
             </button>
           )}
 
           <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.42)] p-3">
+            <div className="rounded-[18px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.48)] p-3">
               <p className="text-[10px] tracking-[0.14em] text-[var(--accent-soft)]">ANO</p>
               <p className="mt-2 text-[14px] font-semibold text-white">{quest.year}</p>
             </div>
-            <div className="rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.42)] p-3">
+            <div className="rounded-[18px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.48)] p-3">
               <p className="text-[10px] tracking-[0.14em] text-[var(--accent-soft)]">CLIENTE</p>
               <p className="mt-2 text-[14px] font-semibold text-white">{quest.client}</p>
             </div>
-            <div className="rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.42)] p-3">
+            <div className="rounded-[18px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.48)] p-3">
               <p className="text-[10px] tracking-[0.14em] text-[var(--accent-soft)]">TEMPO</p>
               <p className="mt-2 text-[14px] font-semibold text-white">{quest.duration}</p>
             </div>
@@ -276,16 +287,16 @@ function MobileQuestCard({
               <span className="text-white/76">MUITO ALTA</span>
             </div>
             <div className="h-[6px] rounded-full bg-white/10">
-              <div className="h-full w-full rounded-full bg-[var(--accent-soft)] shadow-[0_0_18px_rgba(107,217,107,0.5)]" />
+              <div className="h-full w-full rounded-full bg-[var(--accent-soft)] shadow-[0_0_18px_rgba(191,129,255,0.5)]" />
             </div>
           </div>
 
-          <div className="space-y-3 rounded-[22px] border border-[#224222] bg-[rgba(0,18,0,0.28)] p-4">
+          <div className="space-y-3 rounded-[22px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.34)] p-4">
             <InfoDivider title="CONTEXTO" />
             <p className="text-[14px] leading-6 text-white/72">{quest.context}</p>
           </div>
 
-          <div className="space-y-3 rounded-[22px] border border-[#224222] bg-[rgba(0,18,0,0.28)] p-4">
+          <div className="space-y-3 rounded-[22px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.34)] p-4">
             <p className="font-[family:var(--font-display)] text-[17px] text-[var(--accent-soft)]">
               Prólogo
             </p>
@@ -296,7 +307,7 @@ function MobileQuestCard({
             </div>
           </div>
 
-          <div className="space-y-3 rounded-[22px] border border-[#224222] bg-[rgba(0,18,0,0.28)] p-4">
+          <div className="space-y-3 rounded-[22px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.34)] p-4">
             <p className="font-[family:var(--font-display)] text-[17px] text-[var(--accent-soft)]">
               Escalabilidade
             </p>
@@ -333,8 +344,8 @@ function ActiveQuestFolder({
       >
         <defs>
           <linearGradient id="active-folder-fill" x1="0" y1="0" x2="544.28" y2="344.35" gradientUnits="userSpaceOnUse">
-            <stop stopColor="rgba(0,18,0,0.7)" />
-            <stop offset="1" stopColor="rgba(53,63,53,0.4)" />
+            <stop stopColor="rgba(17,8,34,0.92)" />
+            <stop offset="1" stopColor="rgba(49,25,78,0.64)" />
           </linearGradient>
           <radialGradient
             id="active-folder-stroke"
@@ -344,9 +355,9 @@ function ActiveQuestFolder({
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(315 246.999) rotate(19.6629) scale(1276.43 1276.43)"
           >
-            <stop offset="0.0513232" stopColor="#224222" />
-            <stop offset="0.477282" stopColor="#6BD96B" />
-            <stop offset="1" stopColor="#224222" />
+            <stop offset="0.0513232" stopColor="#4d2f7a" />
+            <stop offset="0.477282" stopColor="#bf81ff" />
+            <stop offset="1" stopColor="#4d2f7a" />
           </radialGradient>
         </defs>
         <path d={activeFolderPath} fill="url(#active-folder-fill)" stroke="url(#active-folder-stroke)" strokeWidth="2" />
@@ -381,7 +392,7 @@ function ActiveQuestFolder({
           </div>
         </button>
 
-        <div className="flex-1 rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-[2.95%] py-[3.8%]">
+        <div className="flex-1 rounded-[12px] border border-[#4d2f7a] bg-[rgba(15,7,29,0.9)] px-[2.95%] py-[3.8%]">
           <Card className="border-none bg-transparent">
             <CardHeader className="gap-[4.6%] p-0">
               <div className="flex items-start justify-between gap-6">
@@ -399,18 +410,30 @@ function ActiveQuestFolder({
                     href={quest.platformUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex h-10 shrink-0 items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
+                    className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.9)] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-[#d6b8ff] transition hover:border-[var(--accent-soft)] hover:text-[#f3e8ff] hover:shadow-[0_0_18px_rgba(191,129,255,0.24)]"
                   >
-                    Acessar Plataforma
-                    <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
+                    <span className="block text-center">Acessar Plataforma</span>
+                    <Image
+                      src={arrowRight}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="absolute right-5 h-4 w-4"
+                    />
                   </a>
                 ) : (
                   <button
                     type="button"
-                    className="inline-flex h-10 shrink-0 items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.9)] px-6 text-[13px] font-bold uppercase tracking-[0.02em] text-white transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_18px_rgba(107,217,107,0.18)]"
+                    className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.9)] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-[#d6b8ff] transition hover:border-[var(--accent-soft)] hover:text-[#f3e8ff] hover:shadow-[0_0_18px_rgba(191,129,255,0.24)]"
                   >
-                    Acessar Plataforma
-                    <Image src={arrowRight} alt="" width={16} height={16} className="h-4 w-4" />
+                    <span className="block text-center">Acessar Plataforma</span>
+                    <Image
+                      src={arrowRight}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="absolute right-5 h-4 w-4"
+                    />
                   </button>
                 )}
               </div>
@@ -425,8 +448,8 @@ function ActiveQuestFolder({
                         <span className="text-[var(--accent-soft)]">COMPLEXIDADE</span>
                         <span className="text-[#b9b9b9]">MUITO ALTA</span>
                       </div>
-                      <div className="h-[6px] w-full rounded-full bg-[rgba(107,217,107,0.12)]">
-                        <div className="h-full w-full rounded-full bg-[var(--accent-soft)] shadow-[0_0_18px_rgba(107,217,107,0.52)]" />
+                      <div className="h-[6px] w-full rounded-full bg-[rgba(191,129,255,0.16)]">
+                        <div className="h-full w-full rounded-full bg-[var(--accent-soft)] shadow-[0_0_18px_rgba(191,129,255,0.52)]" />
                       </div>
                     </div>
 
@@ -508,15 +531,17 @@ export function QuestsSection() {
       id="quests"
       className="relative overflow-hidden scroll-mt-24"
       style={{
-        backgroundColor: "#000",
+        ["--accent-soft" as string]: "#bf81ff",
+        backgroundColor: "#05030a",
         backgroundImage: `url("${questsBackground}")`,
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center top",
-        backgroundSize: "84% auto",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
       }}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.24),rgba(0,0,0,0.32)_52%,rgba(0,0,0,0.64))]" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(107,217,107,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(107,217,107,0.03)_1px,transparent_1px)] bg-[size:48px_48px] opacity-30" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(191,129,255,0.18),transparent_36%),linear-gradient(180deg,rgba(4,2,10,0.42),rgba(8,4,18,0.52)_48%,rgba(2,1,7,0.82))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(180,124,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(180,124,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px] opacity-30" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-[linear-gradient(180deg,rgba(203,149,255,0)_0%,rgba(206,158,255,0.08)_38%,rgba(206,158,255,0.2)_100%)] blur-2xl" />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[1920px] flex-col items-center px-4 pb-14 pt-8 sm:px-6 lg:px-[94px] lg:pb-20">
         <div className="flex items-center gap-4 rounded-[12px] px-4 py-4">
@@ -571,13 +596,13 @@ export function QuestsSection() {
               <button
                 type="button"
                 onClick={() => setPreviewQuest(null)}
-                className="inline-flex h-11 items-center justify-center rounded-2xl border border-[#224222] bg-[rgba(0,18,0,0.7)] px-4 text-[11px] uppercase tracking-[0.14em] text-white/82 transition hover:border-[var(--accent-soft)] hover:text-white"
+                className="inline-flex h-11 items-center justify-center rounded-2xl border border-[#4d2f7a] bg-[rgba(19,10,34,0.82)] px-4 text-[11px] uppercase tracking-[0.14em] text-white/82 transition hover:border-[var(--accent-soft)] hover:text-white"
               >
                 Fechar
               </button>
             </div>
 
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[28px] border border-[#224222] bg-[rgba(0,18,0,0.92)] shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[28px] border border-[#4d2f7a] bg-[rgba(15,7,29,0.92)] shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
               <Image
                 src={previewQuest.preview}
                 alt={`Preview ampliado do projeto ${previewQuest.label}`}

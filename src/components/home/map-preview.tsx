@@ -291,7 +291,7 @@ export function MapPreview() {
           </div>
         </div>
 
-        <div className="absolute left-[1430px] top-8 z-20 w-[240px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.83)] p-6 backdrop-blur-[2px]">
+        <div className="absolute left-[1430px] top-8 z-20 w-[240px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] p-6 backdrop-blur-[2px]">
           <div className="flex items-start gap-4">
             <div className="relative flex h-[52px] w-[52px] items-center justify-center">
   <div
@@ -302,11 +302,11 @@ export function MapPreview() {
   />
   <div className="absolute inset-[6px] rounded-full bg-[rgba(0,18,0,0.96)]" />
   <span className="relative z-[1] font-[family:var(--font-display)] text-[22px] font-bold text-[var(--accent-soft)]">
-    7
+    19
   </span>
 </div>
             <div className="space-y-[2px] text-[12px]">
-              <p className="font-bold text-[var(--accent-soft)]">NÍVEL ATUAL</p>
+              <p className="font-bold text-[var(--accent-soft)]">MEU NÍVEL</p>
               <p className="text-[#b9b9b9]">UI/UX DESIGNER PLENO</p>
               <p className="text-[#b9b9b9]">XP 4.750/6.000</p>
             </div>
