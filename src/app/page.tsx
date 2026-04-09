@@ -1,3 +1,4 @@
+import { BackgroundSection } from "@/components/home/background-section";
 import { MapPreview } from "@/components/home/map-preview";
 import { QuestsSection } from "@/components/home/quests-section";
 import { SkillsSection } from "@/components/home/skills-section";
@@ -17,6 +18,7 @@ export default function Home() {
         <MapPreview />
         <SkillsSection />
         <QuestsSection />
+        <BackgroundSection />
       </section>
     </main>
   );

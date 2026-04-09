@@ -329,21 +329,16 @@ function MobileQuestCard({
 }
 
 export function QuestsSection() {
-  const [activeQuestId, setActiveQuestId] = useState(questTabs[0].id);
   const [activeProjectTab, setActiveProjectTab] = useState("overview");
   const [previewQuest, setPreviewQuest] = useState<QuestTab | null>(null);
-  const activeQuestIndex = questTabs.findIndex((quest) => quest.id === activeQuestId);
-  const activeQuest = questTabs[activeQuestIndex] ?? questTabs[0];
   const furionQuest = questTabs[0];
   const clickmaxQuest = questTabs.find((quest) => quest.id === "clickmax") ?? questTabs[0];
 
   useEffect(() => {
     const syncQuestFromHash = () => {
       if (window.location.hash === "#quests-clickmax") {
-        setActiveQuestId("clickmax");
         setActiveProjectTab("analytics");
       } else if (window.location.hash === "#quests" || window.location.hash === "#quests-furion") {
-        setActiveQuestId("furion");
         setActiveProjectTab("overview");
       }
     };
@@ -353,14 +348,6 @@ export function QuestsSection() {
 
     return () => window.removeEventListener("hashchange", syncQuestFromHash);
   }, []);
-
-  useEffect(() => {
-    if (activeProjectTab === "overview") {
-      setActiveQuestId("furion");
-    } else if (activeProjectTab === "analytics") {
-      setActiveQuestId("clickmax");
-    }
-  }, [activeProjectTab]);
 
   return (
     <>

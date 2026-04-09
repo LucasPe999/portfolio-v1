@@ -20,32 +20,32 @@ const radarValues = [1, 0.82, 0.98, 0.84, 0.62, 0.7];
 const skills = [
   {
     title: "FIGMA",
-    description: "Interfaces escalaveis, prototipos inteligentes e handoff preciso.",
+    description: "Interfaces escaláveis, protótipos inteligentes e handoff preciso.",
     icon: toolIcons[0],
   },
   {
     title: "FRAMER",
-    description: "Interfaces publicaveis, animacoes fluidas e experiencias reais.",
+    description: "Interfaces publicáveis, animações fluidas e experiências reais.",
     icon: toolIcons[1],
   },
   {
     title: "ADOBE CREATIVE SUITE",
-    description: "Criacao visual refinada, identidade e producao grafica profissional.",
+    description: "Criação visual refinada, identidade e produção gráfica profissional.",
     icon: toolIcons[2],
   },
   {
     title: "CODEX",
-    description: "Transformacao de design em codigo com auxilio de inteligencia artificial.",
+    description: "Transformação de design em código com auxílio de inteligência artificial.",
     icon: toolIcons[3],
   },
   {
     title: "VS CODE",
-    description: "Estruturacao de interfaces, logica e integracao com codigo real.",
+    description: "Estruturação de interfaces, lógica e integração com código real.",
     icon: toolIcons[4],
   },
   {
     title: "SPLINE",
-    description: "Interfaces 3D interativas, animacoes vivas e experiencias imersivas.",
+    description: "Interfaces 3D interativas, animações vivas e experiências imersivas.",
     icon: toolIcons[5],
   },
 ];
@@ -73,7 +73,7 @@ function RadarChart() {
     .join(" ");
 
   return (
-    <div className="relative mx-auto h-[320px] w-[326px]">
+    <div className="relative mx-auto aspect-square w-full max-w-[326px]">
       <svg viewBox="0 0 286 262" className="absolute inset-0 h-full w-full" aria-hidden="true">
         <g transform="translate(9 15)">
           {[20, 40, 60, 80, 100].map((r) => (
@@ -122,14 +122,12 @@ function RadarChart() {
       {toolPositions.map((position, index) => (
         <div key={position} className={`absolute ${position} -translate-x-1/2 -translate-y-1/2`}>
           <Image
-  src={toolIcons[index]}
-  alt=""
-  width={index === 5 ? 36 : 24}
-  height={index === 5 ? 36 : 24}
-  className={`object-contain ${
-    index === 5 ? "h-9 w-9" : "h-6 w-6"
-  }`}
-/>
+            src={toolIcons[index]}
+            alt=""
+            width={index === 5 ? 36 : 24}
+            height={index === 5 ? 36 : 24}
+            className={`object-contain ${index === 5 ? "h-9 w-9" : "h-6 w-6"}`}
+          />
         </div>
       ))}
     </div>
@@ -152,23 +150,29 @@ export function SkillsSection() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.46),rgba(0,0,0,0.18)_36%,rgba(0,0,0,0.52))]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(107,217,107,0.06),transparent_52%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(107,217,107,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(107,217,107,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-30" />
-      <div className="absolute inset-x-0 top-0 h-[1px] bg-black z-[1]" />
+      <div className="absolute inset-x-0 top-0 z-[1] h-px bg-black" />
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[1920px] flex-col items-center justify-start px-4 pb-16 pt-8 sm:px-6 lg:px-[120px] lg:pt-8">
+      <div className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-[1920px] flex-col items-center justify-start px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pt-8 xl:px-[120px]">
         <div className="flex items-center gap-4 rounded-[12px] px-4 py-4">
           <Image src={swordIcon} alt="" width={32} height={32} className="h-8 w-8 object-contain" />
           <h2 className="font-[family:var(--font-display)] text-[32px] uppercase tracking-[0.08em] text-[var(--accent-soft)]">
             Skills
           </h2>
-          <Image src={swordIcon} alt="" width={32} height={32} className="h-8 w-8 object-contain scale-x-[-1]" />
+          <Image
+            src={swordIcon}
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8 scale-x-[-1] object-contain"
+          />
         </div>
 
-        <div className="mt-8 grid w-full gap-8 lg:grid-cols-[364px_362px_522px] lg:items-start lg:justify-start lg:gap-[76px] lg:px-[78px] lg:pt-8">
-          <div className="relative flex h-[440px] items-center justify-center">
-            <div className="relative h-[380px] w-[220px] overflow-hidden rounded-[88px]">
+        <div className="mt-8 grid w-full gap-5 md:gap-6 lg:grid-cols-2 lg:items-start xl:grid-cols-[minmax(240px,0.9fr)_minmax(320px,1fr)_minmax(360px,1.2fr)] xl:gap-8 xl:px-10 xl:pt-8">
+          <div className="relative flex h-[280px] items-center justify-center sm:h-[340px] lg:col-span-2 xl:col-span-1 xl:h-[440px]">
+            <div className="relative h-[250px] w-[160px] overflow-hidden rounded-[64px] sm:h-[320px] sm:w-[200px] sm:rounded-[84px] xl:h-[380px] xl:w-[220px] xl:rounded-[88px]">
               <Image
                 src="/gifs/gif-character.gif"
-                alt="Character animation"
+                alt="Personagem animado"
                 fill
                 unoptimized
                 className="object-contain mix-blend-lighten"
@@ -176,25 +180,31 @@ export function SkillsSection() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] px-4 pb-[26px] pt-4 min-h-[435px]">
-            <p className="relative text-center font-[family:var(--font-body)] text-[21.18px] font-normal tracking-normal text-[var(--accent-soft)]">
+          <div className="relative overflow-hidden rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] px-3 pb-5 pt-4 sm:px-4 sm:pb-6 lg:min-h-[435px]">
+            <p className="relative text-center font-[family:var(--font-body)] text-[21.18px] text-[var(--accent-soft)]">
               FERRAMENTAS
             </p>
-            <div className="relative mt-2">
+            <div className="relative mt-4 flex justify-center">
               <RadarChart />
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] px-10 pb-6 pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] backdrop-blur-[2px]">
-            <p className="relative text-center font-[family:var(--font-body)] text-[21.18px] font-normal tracking-normal text-[var(--accent-soft)]">
+          <div className="relative overflow-hidden rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] px-4 pb-5 pt-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] backdrop-blur-[2px] sm:px-6 sm:pb-6 xl:px-8">
+            <p className="relative text-center font-[family:var(--font-body)] text-[21.18px] text-[var(--accent-soft)]">
               HABILIDADES
             </p>
             <div className="relative mt-3 space-y-3">
               {skills.map((skill) => (
-                <div key={skill.title} className="flex items-center gap-6">
-                  <Image src={skill.icon} alt="" width={24} height={24} className="h-6 w-6 shrink-0 object-contain" />
-                  <div className="pb-1">
-                    <p className="font-[family:var(--font-body)] text-[16px] font-bold leading-none text-[var(--accent-soft)]">
+                <div key={skill.title} className="flex items-start gap-4 sm:gap-6">
+                  <Image
+                    src={skill.icon}
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="h-6 w-6 shrink-0 object-contain"
+                  />
+                  <div className="min-w-0 pb-1">
+                    <p className="font-[family:var(--font-body)] text-[15px] font-bold leading-none text-[var(--accent-soft)] sm:text-[16px]">
                       {skill.title}
                     </p>
                     <p className="mt-[7px] max-w-[372px] text-[12px] leading-normal text-[#b9b9b9]">

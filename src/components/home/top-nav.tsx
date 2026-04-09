@@ -9,7 +9,7 @@ const navItems = [
   { label: "Início", href: "#inicio" },
   { label: "Skills", href: "#skills" },
   { label: "Quests", href: "#quests" },
-  { label: "Background", href: "#" },
+  { label: "Background", href: "#background" },
   { label: "Contato", href: "#" },
 ];
 
@@ -17,6 +17,7 @@ const trackedSections = [
   { id: "inicio", href: "#inicio" },
   { id: "skills", href: "#skills" },
   { id: "quests", href: "#quests" },
+  { id: "background", href: "#background" },
 ];
 
 export function TopNav() {
@@ -87,7 +88,7 @@ export function TopNav() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#2b2b2b] bg-[rgba(1,3,2,0.82)] px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-[237px] lg:py-0">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#2b2b2b] bg-[rgba(1,3,2,0.82)] px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-8 lg:py-0 xl:px-[120px] 2xl:px-[237px]">
       <div className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(107,217,107,0.22),transparent)]" />
 
       <div className="mx-auto flex w-full max-w-[1920px] flex-col gap-4 lg:h-20 lg:flex-row lg:items-center lg:justify-between">
@@ -107,7 +108,7 @@ export function TopNav() {
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             onClick={() => setIsMobileMenuOpen((current) => !current)}
-            className="group relative flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(5,28,11,0.96),rgba(1,10,4,0.9))] shadow-[0_0_18px_rgba(107,217,107,0.18)] transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_22px_rgba(107,217,107,0.26)] lg:hidden"
+            className="group relative flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(5,28,11,0.96),rgba(1,10,4,0.9))] shadow-[0_0_18px_rgba(107,217,107,0.18)] transition hover:border-[var(--accent-soft)] hover:shadow-[0_0_22px_rgba(107,217,107,0.26)] xl:hidden"
           >
             <span className="sr-only">Menu</span>
             <span className="absolute inset-[1px] rounded-[15px] bg-[linear-gradient(180deg,rgba(107,217,107,0.08),transparent_55%)]" />
@@ -131,7 +132,7 @@ export function TopNav() {
           </button>
         </div>
 
-        <nav className="hidden h-full items-center gap-[54px] lg:flex">
+        <nav className="hidden h-full items-center gap-8 xl:flex 2xl:gap-[54px]">
           {navItems.map((item) => {
             const isActive = activeHref === item.href;
 
@@ -155,7 +156,7 @@ export function TopNav() {
           })}
         </nav>
 
-        <div className="hidden lg:flex">
+        <div className="hidden xl:flex">
           <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-[var(--accent-soft)] bg-[radial-gradient(circle_at_top,rgba(107,217,107,0.24),rgba(0,18,0,0.96))] shadow-[0_0_14px_rgba(107,217,107,0.3)]">
             <Image
               src="/avatar.png"
@@ -176,7 +177,7 @@ export function TopNav() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 top-[72px] z-40 bg-[rgba(0,0,0,0.55)] backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 top-[72px] z-40 bg-[rgba(0,0,0,0.55)] backdrop-blur-sm xl:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -185,7 +186,7 @@ export function TopNav() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -18 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-x-4 top-[calc(100%+14px)] z-50 rounded-[28px] border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(3,18,7,0.96),rgba(1,8,3,0.96))] p-4 shadow-[0_24px_60px_rgba(0,0,0,0.45),0_0_24px_rgba(107,217,107,0.08)] lg:hidden"
+              className="absolute inset-x-4 top-[calc(100%+14px)] z-50 rounded-[28px] border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(3,18,7,0.96),rgba(1,8,3,0.96))] p-4 shadow-[0_24px_60px_rgba(0,0,0,0.45),0_0_24px_rgba(107,217,107,0.08)] xl:hidden"
             >
               <div className="absolute inset-x-6 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(107,217,107,0.38),transparent)]" />
               <div className="rounded-[22px] border border-white/6 bg-[radial-gradient(circle_at_top,rgba(107,217,107,0.1),transparent_58%)] p-3">

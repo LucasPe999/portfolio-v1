@@ -60,7 +60,7 @@ const heroNodes: HeroNode[] = [
         "Design de interfaces",
         "Hierarquia visual",
         "Design responsivo",
-        "Microinteracoes",
+        "Microinterações",
       ],
       project: {
         title: "FURION",
@@ -91,8 +91,8 @@ const heroNodes: HeroNode[] = [
       competencies: [
         "Mapeamento de jornadas",
         "Testes de usabilidade",
-        "Design centrado no usuario",
-        "Testes de iteracao",
+        "Design centrado no usuário",
+        "Testes de iteração",
       ],
       project: {
         title: "KOLTO",
@@ -180,7 +180,7 @@ const heroNodes: HeroNode[] = [
       progressFill: "82%",
       competencies: [
         "Wireframes interativos",
-        "Microinteracoes",
+        "Microinterações",
         "Navegação fluida",
         "Validação rápida",
       ],
@@ -230,11 +230,11 @@ export function MapPreview() {
     <section id="mapa" className="relative overflow-hidden border-b border-[#2b2b2b]">
       <div className="pointer-events-none absolute inset-0 bg-black" />
 
-      <div className="relative mx-auto hidden h-[calc(100vh-80px)] min-h-[880px] w-full max-w-[1920px] overflow-hidden lg:block">
+      <div className="relative mx-auto hidden h-[calc(100vh-80px)] min-h-[880px] w-full max-w-[1920px] overflow-hidden 2xl:block">
         <div className="absolute left-[240px] top-12 z-20 flex w-[401px] flex-col gap-6">
           <div className="relative -top-2 inline-flex h-10 w-fit items-center justify-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.88)] px-6 py-[10px] backdrop-blur-[2px]">
             <Image src="/icons/gamepad.svg" alt="Gamepad" width={16} height={16} />
-            <span className="text-[15px] text-[var(--accent-soft)]">BEM VINDO AO MEU MUNDO</span>
+            <span className="text-[15px] text-[var(--accent-soft)]">BEM-VINDO AO MEU MUNDO</span>
             <Image src="/icons/arrow.svg" alt="" width={16} height={16} />
           </div>
 
@@ -249,7 +249,7 @@ export function MapPreview() {
 
           <p className="text-[16px] leading-normal text-[#b9b9b9]">
             Explore meu mapa de habilidades, conheça meus projetos e descubra como
-            transformo ideias em produtos digitais de alto impacto
+            transformo ideias em produtos digitais de alto impacto.
           </p>
 
           <a
@@ -294,17 +294,18 @@ export function MapPreview() {
         <div className="absolute left-[1430px] top-8 z-20 w-[240px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] p-6 backdrop-blur-[10px]">
           <div className="flex items-start gap-4">
             <div className="relative flex h-[52px] w-[52px] items-center justify-center">
-  <div
-    className="absolute inset-0 rounded-full"
-    style={{
-      background: "conic-gradient(#6bd96b 0 82%, rgba(107,217,107,0.16) 82% 100%)",
-    }}
-  />
-  <div className="absolute inset-[6px] rounded-full bg-[rgba(0,18,0,0.96)]" />
-  <span className="relative z-[1] font-[family:var(--font-display)] text-[22px] font-bold text-[var(--accent-soft)]">
-    19
-  </span>
-</div>
+              <div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background:
+                    "conic-gradient(#6bd96b 0 82%, rgba(107,217,107,0.16) 82% 100%)",
+                }}
+              />
+              <div className="absolute inset-[6px] rounded-full bg-[rgba(0,18,0,0.96)]" />
+              <span className="relative z-[1] font-[family:var(--font-display)] text-[22px] font-bold text-[var(--accent-soft)]">
+                19
+              </span>
+            </div>
             <div className="space-y-[2px] text-[12px]">
               <p className="font-bold text-[var(--accent-soft)]">MEU NÍVEL</p>
               <p className="text-[#b9b9b9]">UI/UX DESIGNER PLENO</p>
@@ -317,7 +318,13 @@ export function MapPreview() {
               CONQUISTA DISPONÍVEL
             </p>
             <div className="flex items-center gap-2">
-              <Image src="/icons/medal.svg" alt="" width={24} height={24} className="h-6 w-6 object-contain" />
+              <Image
+                src="/icons/medal.svg"
+                alt=""
+                width={24}
+                height={24}
+                className="h-6 w-6 object-contain"
+              />
               <p className="text-[12px] font-bold capitalize text-white">+1 projeto pessoal</p>
             </div>
           </div>
@@ -330,12 +337,12 @@ export function MapPreview() {
             scale: activeNode ? 0.985 : 1,
           }}
           transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute left-[230px] top-[0px] z-0 h-[1008px] w-[1447px] overflow-hidden"
+          className="absolute left-[230px] top-0 z-0 h-[1008px] w-[1447px] overflow-hidden"
         >
           <div className="absolute left-[-200px] top-0 h-[960px] w-[1660px]">
             <Image
               src={mapBackground}
-              alt="Mapa ilustrado do portfolio"
+              alt="Mapa ilustrado do portfólio"
               width={1820}
               height={1180}
               priority
@@ -383,7 +390,10 @@ export function MapPreview() {
               exit={{ opacity: 0 }}
               className="absolute inset-0 z-20"
             >
-              <div className="absolute inset-0 bg-[rgba(0,0,0,0.12)]" onClick={() => setActiveNodeId(null)} />
+              <div
+                className="absolute inset-0 bg-[rgba(0,0,0,0.12)]"
+                onClick={() => setActiveNodeId(null)}
+              />
               <div className="absolute right-[228px] top-[78px] z-30 w-[360px]">
                 <SkillPanel
                   title={activeNode.title}
@@ -406,13 +416,13 @@ export function MapPreview() {
         </AnimatePresence>
       </div>
 
-      <div className="relative mx-auto flex max-w-[1920px] flex-col gap-5 px-4 py-4 sm:px-6 lg:hidden">
-        <div className="relative overflow-hidden rounded-[30px] border border-[#163216] bg-[linear-gradient(180deg,rgba(2,14,5,0.92),rgba(0,0,0,0.98))] px-5 pb-6 pt-6 shadow-[0_24px_60px_rgba(0,0,0,0.34),0_0_28px_rgba(107,217,107,0.08)]">
+      <div className="relative mx-auto flex max-w-[1920px] flex-col gap-4 px-4 py-4 sm:px-6 lg:gap-5 2xl:hidden">
+        <div className="relative overflow-hidden rounded-[28px] border border-[#163216] bg-[linear-gradient(180deg,rgba(2,14,5,0.92),rgba(0,0,0,0.98))] px-4 pb-5 pt-5 shadow-[0_24px_60px_rgba(0,0,0,0.34),0_0_28px_rgba(107,217,107,0.08)] sm:px-5 sm:pb-6 sm:pt-6">
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute inset-0">
               <Image
                 src={mapBackground}
-                alt="Mapa ilustrado do portfolio"
+                alt="Mapa ilustrado do portfólio"
                 fill
                 priority
                 className="scale-[1.18] object-cover object-[68%_center] opacity-90"
@@ -424,22 +434,22 @@ export function MapPreview() {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(107,217,107,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(107,217,107,0.025)_1px,transparent_1px)] bg-[size:34px_34px] opacity-40" />
           </div>
 
-          <div className="relative z-10 max-w-[19rem] space-y-5">
+          <div className="relative z-10 max-w-[22rem] space-y-4 sm:space-y-5">
             <div className="inline-flex h-10 items-center gap-[10px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.72)] px-5 py-[10px] backdrop-blur-[4px]">
               <Image src="/icons/gamepad.svg" alt="" width={16} height={16} />
               <span className="text-[12px] tracking-[0.18em] text-[var(--accent-soft)]">
-                BEM VINDO AO MEU MUNDO
+                BEM-VINDO AO MEU MUNDO
               </span>
               <Image src="/icons/arrow.svg" alt="" width={16} height={16} />
             </div>
 
             <div>
-              <h1 className="max-w-[16rem] font-[family:var(--font-display)] text-[2.45rem] font-bold uppercase leading-[0.9] text-white [text-shadow:0_10px_32px_rgba(0,0,0,0.55)]">
+              <h1 className="max-w-[18rem] font-[family:var(--font-display)] text-[2.45rem] font-bold uppercase leading-[0.9] text-white [text-shadow:0_10px_32px_rgba(0,0,0,0.55)] sm:max-w-[22rem] sm:text-[3rem]">
                 Design que conecta.
                 <span className="block text-[var(--accent-soft)]">Experiências</span>
                 que transformam
               </h1>
-              <p className="mt-4 max-w-[18rem] text-[15px] leading-6 text-white/74">
+              <p className="mt-4 max-w-[20rem] text-[15px] leading-6 text-white/74 sm:max-w-[26rem] sm:text-[16px]">
                 Explore meu mapa de habilidades, conheça meus projetos e descubra como
                 transformo ideias em produtos digitais de alto impacto.
               </p>
@@ -455,8 +465,8 @@ export function MapPreview() {
             </div>
           </div>
 
-          <div className="relative z-10 mt-12 flex items-end justify-between gap-4">
-            <div className="max-w-[10.5rem] rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.48)] px-4 py-3 backdrop-blur-[5px]">
+          <div className="relative z-10 mt-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-[14rem] rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.48)] px-4 py-3 backdrop-blur-[5px]">
               <p className="text-[11px] font-bold tracking-[0.16em] text-[var(--accent-soft)]">
                 MISSÃO ATUAL
               </p>
@@ -465,7 +475,7 @@ export function MapPreview() {
               </p>
             </div>
 
-            <div className="rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.56)] px-4 py-3 backdrop-blur-[5px]">
+            <div className="w-fit rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.56)] px-4 py-3 backdrop-blur-[5px]">
               <p className="text-[10px] tracking-[0.18em] text-[var(--accent-soft)]">
                 MAPA ONLINE
               </p>

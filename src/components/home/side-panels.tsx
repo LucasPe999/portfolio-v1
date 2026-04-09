@@ -1,10 +1,10 @@
 const tools = ["Figma", "Framer", "Notion", "FigJam", "Tailwind CSS", "VS Code", "GitHub"];
 
 const stats = [
-  { value: "5+", label: "Anos de experiencia" },
+  { value: "5+", label: "Anos de experiência" },
   { value: "15+", label: "Projetos entregues" },
   { value: "10+", label: "Clientes satisfeitos" },
-  { value: "oo", label: "Cafes consumidos" },
+  { value: "oo", label: "Cafés consumidos" },
 ];
 
 export function LeftMissionPanel() {
@@ -15,7 +15,7 @@ export function LeftMissionPanel() {
         <div className="relative">
           <p className="hud-label text-[11px] text-[var(--accent-soft)]">Ferramentas do meu cinto</p>
           <p className="mt-4 font-[family:var(--font-display)] text-[2rem] uppercase leading-[0.96] tracking-[0.06em] text-white">
-            Stack de criacao e execucao
+            Stack de criação e execução
           </p>
           <p className="mt-4 text-sm leading-6 text-white/65">
             Algumas das ferramentas usadas para transformar ideias em interfaces premium.
@@ -34,7 +34,7 @@ export function LeftMissionPanel() {
           </div>
           <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
             <p className="text-[10px] uppercase tracking-[0.2em] text-white/38">Foco atual</p>
-            <p className="mt-2 text-sm text-white/80">Experiencias imersivas com design e frontend moderno.</p>
+            <p className="mt-2 text-sm text-white/80">Experiências imersivas com design e frontend moderno.</p>
           </div>
         </div>
       </section>
@@ -58,7 +58,10 @@ export function BottomDock() {
 
       <div className="mt-6 grid gap-4 border-t border-white/10 pt-5 sm:grid-cols-2 xl:grid-cols-4">
         {stats.map((stat) => (
-          <div key={stat.label} className="flex items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.025] p-4">
+          <div
+            key={stat.label}
+            className="flex items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.025] p-4"
+          >
             <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--line-strong)] bg-[rgba(126,255,163,0.08)] text-[var(--accent-soft)]">
               +
             </div>

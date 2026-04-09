@@ -11,11 +11,11 @@ export function HeroPanel() {
       <div className="mt-9">
         <h1 className="font-[family:var(--font-display)] text-[2.9rem] uppercase leading-[0.88] tracking-[0.03em] text-white [text-shadow:0_12px_40px_rgba(0,0,0,0.48)] sm:text-[3.8rem] xl:text-[4.6rem]">
           Design que conecta.
-          <span className="block text-[var(--accent-soft)]">Experiencias</span>
+          <span className="block text-[var(--accent-soft)]">Experiências</span>
           que transformam.
         </h1>
         <p className="mt-6 max-w-md text-base leading-7 text-white/72 sm:text-lg">
-          Explore meu mapa de habilidades, conheca projetos e descubra como transformo
+          Explore meu mapa de habilidades, conheça projetos e descubra como transformo
           ideias em produtos digitais de alto impacto.
         </p>
       </div>
