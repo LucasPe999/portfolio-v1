@@ -51,21 +51,21 @@ const heroNodes: HeroNode[] = [
       eyebrow: "HABILIDADE",
       summary: "Interfaces que comunicam, conectam e convertem",
       overview:
-        "Foco principal na criação de interfaces digitais intuitivas, visualmente impactantes e alinhadas aos objetivos do cliente. Cada detalhe é pensado para melhorar a experiência do usuário.",
+        "Foco principal na criaÃ§Ã£o de interfaces digitais intuitivas, visualmente impactantes e alinhadas aos objetivos do cliente. Cada detalhe Ã© pensado para melhorar a experiÃªncia do usuÃ¡rio.",
       panelBackground: "rgba(0, 18, 0, 0.9)",
-      progressLabel: "AVANÇADO",
+      progressLabel: "AVANÃ‡ADO",
       progressValue: "XP 4.750/6.000",
       progressFill: "78%",
       competencies: [
         "Design de interfaces",
         "Hierarquia visual",
         "Design responsivo",
-        "Microinterações",
+        "MicrointeraÃ§Ãµes",
       ],
       project: {
         title: "FURION",
         description:
-          "Ferramenta com inteligência artificial focada em marketing digital de alta performance, projetada para automatizar e otimizar a criação de anúncios online, vendas e estratégias de conteúdo.",
+          "Ferramenta com inteligÃªncia artificial focada em marketing digital de alta performance, projetada para automatizar e otimizar a criaÃ§Ã£o de anÃºncios online, vendas e estratÃ©gias de conteÃºdo.",
         image: "https://www.figma.com/api/mcp/asset/0c29fd76-da06-4b9e-adde-a2dee8688dee",
         buttonHref: "#quests",
       },
@@ -81,50 +81,50 @@ const heroNodes: HeroNode[] = [
     positionClass: "left-[732px] top-[618px]",
     panel: {
       eyebrow: "HABILIDADE",
-      summary: "Pesquisas, dados e análises para entender usuários.",
+      summary: "Pesquisas, dados e anÃ¡lises para entender usuÃ¡rios.",
       overview:
-        "Realização de projetos utilizando testes de iteração e explorações profundas para entender quais opções são necessárias para criar soluções que realmente fazem a diferença.",
+        "RealizaÃ§Ã£o de projetos utilizando testes de iteraÃ§Ã£o e exploraÃ§Ãµes profundas para entender quais opÃ§Ãµes sÃ£o necessÃ¡rias para criar soluÃ§Ãµes que realmente fazem a diferenÃ§a.",
       panelBackground: "rgba(21, 19, 0, 0.8)",
-      progressLabel: "AVANÇADO",
+      progressLabel: "AVANÃ‡ADO",
       progressValue: "XP 3.882/6.000",
       progressFill: "65%",
       competencies: [
         "Mapeamento de jornadas",
         "Testes de usabilidade",
-        "Design centrado no usuário",
-        "Testes de iteração",
+        "Design centrado no usuÃ¡rio",
+        "Testes de iteraÃ§Ã£o",
       ],
       project: {
-        title: "KOLTO",
+        title: "ILOTTO",
         description:
-          "Plataforma de sorteios online com bilhetes instantâneos, raspadinhas e ferramentas de análise para cada sorteio.",
+          "Plataforma de sorteios online com bilhetes instantÃ¢neos, raspadinhas e ferramentas de anÃ¡lise para cada sorteio.",
         image: "https://www.figma.com/api/mcp/asset/bf9edb8e-fe8c-4e7d-a735-a39f0c07aa22",
         imageClassName: "scale-[1.7]",
-        hideButton: true,
+        buttonHref: "#quests-ilotto",
       },
     },
   },
   {
     id: "design-system",
     title: "DESIGN SYSTEM",
-    subtitle: "Escalabilidade - Consistência",
+    subtitle: "Escalabilidade - ConsistÃªncia",
     icon: "/icons/design-system.svg",
     color: "#9725c4",
     glow: "rgba(151,37,196,0.5)",
     positionClass: "left-[896px] top-[265px]",
     panel: {
       eyebrow: "HABILIDADE",
-      summary: "Capacidade de escalar projetos com consistência",
+      summary: "Capacidade de escalar projetos com consistÃªncia",
       overview:
-        "Crio sistemas de design que padronizam componentes, aceleram entregas e garantem consistência visual e funcional entre times e produtos.",
+        "Crio sistemas de design que padronizam componentes, aceleram entregas e garantem consistÃªncia visual e funcional entre times e produtos.",
       panelBackground: "#0b000f",
-      progressLabel: "AVANÇADO",
+      progressLabel: "AVANÃ‡ADO",
       progressValue: "XP 5.587/6.000",
       progressFill: "93%",
       competencies: [
-        "Tokens e variáveis",
-        "Componentização",
-        "Documentação",
+        "Tokens e variÃ¡veis",
+        "ComponentizaÃ§Ã£o",
+        "DocumentaÃ§Ã£o",
         "Escalabilidade visual",
       ],
     },
@@ -132,30 +132,30 @@ const heroNodes: HeroNode[] = [
   {
     id: "produto",
     title: "PRODUTO",
-    subtitle: "Estratégia - Impacto",
+    subtitle: "EstratÃ©gia - Impacto",
     icon: "/icons/produto.svg",
     color: "#d9901b",
     glow: "rgba(217,144,27,0.54)",
     positionClass: "left-[1178px] top-[198px]",
     panel: {
       eyebrow: "HABILIDADE",
-      summary: "Estratégias sob medida para gerar impacto",
+      summary: "EstratÃ©gias sob medida para gerar impacto",
       overview:
-        "Cada projeto é pensado para transformar ideias em produtos digitais valiosos, aliando design, negócios e tecnologia em cada decisão.",
+        "Cada projeto Ã© pensado para transformar ideias em produtos digitais valiosos, aliando design, negÃ³cios e tecnologia em cada decisÃ£o.",
       panelBackground: "#0f0900",
-      progressLabel: "AVANÇADO",
+      progressLabel: "AVANÃ‡ADO",
       progressValue: "XP 5.787/6.000",
       progressFill: "96%",
       competencies: [
         "Descoberta de produto",
-        "Métricas",
+        "MÃ©tricas",
         "Roadmap de features",
-        "Priorização",
+        "PriorizaÃ§Ã£o",
       ],
       project: {
         title: "CLICKMAX",
         description:
-          "Ferramenta completa para criar páginas, funis, proteger links, gerenciar leads e enviar mensagens personalizadas.",
+          "Ferramenta completa para criar pÃ¡ginas, funis, proteger links, gerenciar leads e enviar mensagens personalizadas.",
         image: "https://www.figma.com/api/mcp/asset/0c29fd76-da06-4b9e-adde-a2dee8688dee",
         buttonHref: "#quests-clickmax",
       },
@@ -164,50 +164,50 @@ const heroNodes: HeroNode[] = [
   {
     id: "prototipagem",
     title: "PROTOTIPAGEM",
-    subtitle: "Ideias - Validação",
+    subtitle: "Ideias - ValidaÃ§Ã£o",
     icon: "/icons/prototipagem.svg",
     color: "#0f9aba",
     glow: "rgba(15,154,186,0.5)",
     positionClass: "left-[1454px] top-[482px]",
     panel: {
       eyebrow: "HABILIDADE",
-      summary: "Conceitos transformados em protótipos",
+      summary: "Conceitos transformados em protÃ³tipos",
       overview:
-        "Transformo ideias em protótipos interativos para validar fluxos, testar conceitos e comunicar soluções com clareza antes do desenvolvimento final.",
+        "Transformo ideias em protÃ³tipos interativos para validar fluxos, testar conceitos e comunicar soluÃ§Ãµes com clareza antes do desenvolvimento final.",
       panelBackground: "#001115",
-      progressLabel: "AVANÇADO",
+      progressLabel: "AVANÃ‡ADO",
       progressValue: "XP 4.921/6.000",
       progressFill: "82%",
       competencies: [
         "Wireframes interativos",
-        "Microinterações",
-        "Navegação fluida",
-        "Validação rápida",
+        "MicrointeraÃ§Ãµes",
+        "NavegaÃ§Ã£o fluida",
+        "ValidaÃ§Ã£o rÃ¡pida",
       ],
     },
   },
   {
     id: "ai-design",
     title: "AI DESIGN",
-    subtitle: "Estrutura - Prompts - Código",
+    subtitle: "Estrutura - Prompts - CÃ³digo",
     icon: "/icons/ai-design.svg",
     color: "#61e1fe",
     glow: "rgba(97,225,254,0.52)",
     positionClass: "left-[1106px] top-[680px]",
     panel: {
       eyebrow: "HABILIDADE",
-      summary: "IA para criação de design-to-code",
+      summary: "IA para criaÃ§Ã£o de design-to-code",
       overview:
-        "Uso de inteligência artificial para acelerar o fluxo de design-to-code, por meio do MCP do Figma, gerando interfaces, componentes e iterações em segundos com qualidade.",
+        "Uso de inteligÃªncia artificial para acelerar o fluxo de design-to-code, por meio do MCP do Figma, gerando interfaces, componentes e iteraÃ§Ãµes em segundos com qualidade.",
       panelBackground: "#001317",
-      progressLabel: "AVANÇADO",
+      progressLabel: "AVANÃ‡ADO",
       progressValue: "XP 3.741/6.000",
       progressFill: "62%",
       competencies: [
         "Prompt engineering",
         "Figma MCP",
         "VS Code",
-        "Automação de UI",
+        "AutomaÃ§Ã£o de UI",
       ],
     },
   },
@@ -242,13 +242,13 @@ export function MapPreview() {
             <p>DESIGN QUE</p>
             <p>CONECTA.</p>
             <p>
-              <span className="text-[var(--accent-soft)]">EXPERIÊNCIAS</span> QUE
+              <span className="text-[var(--accent-soft)]">EXPERIÃŠNCIAS</span> QUE
             </p>
             <p>TRANSFORMAM</p>
           </div>
 
           <p className="text-[16px] leading-normal text-[#b9b9b9]">
-            Explore meu mapa de habilidades, conheça meus projetos e descubra como
+            Explore meu mapa de habilidades, conheÃ§a meus projetos e descubra como
             transformo ideias em produtos digitais de alto impacto.
           </p>
 
@@ -263,11 +263,11 @@ export function MapPreview() {
 
         <div className="absolute left-[240px] top-[520px] z-20 w-[272px] rounded-[12px] border border-[#224222] bg-[rgba(0,18,0,0.33)] p-6 backdrop-blur-[2px]">
           <div className="space-y-2">
-            <p className="text-[16px] font-bold text-[var(--accent-soft)]">MISSÃO ATUAL</p>
+            <p className="text-[16px] font-bold text-[var(--accent-soft)]">MISSÃƒO ATUAL</p>
             <div className="text-[16px] leading-normal text-[#b9b9b9]">
               <p>Construir produtos digitais que</p>
               <p>geram valor para pessoas</p>
-              <p>e negócios</p>
+              <p>e negÃ³cios</p>
             </div>
           </div>
 
@@ -307,7 +307,7 @@ export function MapPreview() {
               </span>
             </div>
             <div className="space-y-[2px] text-[12px]">
-              <p className="font-bold text-[var(--accent-soft)]">MEU NÍVEL</p>
+              <p className="font-bold text-[var(--accent-soft)]">MEU NÃVEL</p>
               <p className="text-[#b9b9b9]">UI/UX DESIGNER PLENO</p>
               <p className="text-[#b9b9b9]">XP 4.750/6.000</p>
             </div>
@@ -315,7 +315,7 @@ export function MapPreview() {
 
           <div className="mt-6 w-[224px] space-y-2">
             <p className="text-[12px] font-bold uppercase text-[var(--accent-soft)]">
-              CONQUISTA DISPONÍVEL
+              CONQUISTA DISPONÃVEL
             </p>
             <div className="flex items-center gap-2">
               <Image
@@ -342,7 +342,7 @@ export function MapPreview() {
           <div className="absolute left-[-200px] top-0 h-[960px] w-[1660px]">
             <Image
               src={mapBackground}
-              alt="Mapa ilustrado do portfólio"
+              alt="Mapa ilustrado do portfÃ³lio"
               width={1820}
               height={1180}
               priority
@@ -422,7 +422,7 @@ export function MapPreview() {
             <div className="absolute inset-0">
               <Image
                 src={mapBackground}
-                alt="Mapa ilustrado do portfólio"
+                alt="Mapa ilustrado do portfÃ³lio"
                 fill
                 priority
                 className="scale-[1.18] object-cover object-[68%_center] opacity-90"
@@ -446,11 +446,11 @@ export function MapPreview() {
             <div>
               <h1 className="max-w-[18rem] font-[family:var(--font-display)] text-[2.45rem] font-bold uppercase leading-[0.9] text-white [text-shadow:0_10px_32px_rgba(0,0,0,0.55)] sm:max-w-[22rem] sm:text-[3rem]">
                 Design que conecta.
-                <span className="block text-[var(--accent-soft)]">Experiências</span>
+                <span className="block text-[var(--accent-soft)]">ExperiÃªncias</span>
                 que transformam
               </h1>
               <p className="mt-4 max-w-[20rem] text-[15px] leading-6 text-white/74 sm:max-w-[26rem] sm:text-[16px]">
-                Explore meu mapa de habilidades, conheça meus projetos e descubra como
+                Explore meu mapa de habilidades, conheÃ§a meus projetos e descubra como
                 transformo ideias em produtos digitais de alto impacto.
               </p>
             </div>
@@ -468,7 +468,7 @@ export function MapPreview() {
           <div className="relative z-10 mt-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-[14rem] rounded-[18px] border border-[#224222] bg-[rgba(0,18,0,0.48)] px-4 py-3 backdrop-blur-[5px]">
               <p className="text-[11px] font-bold tracking-[0.16em] text-[var(--accent-soft)]">
-                MISSÃO ATUAL
+                MISSÃƒO ATUAL
               </p>
               <p className="mt-2 text-[12px] leading-5 text-white/66">
                 Criar produtos digitais com clareza, impacto e atmosfera premium.
@@ -492,7 +492,7 @@ export function MapPreview() {
             <p className="text-[11px] tracking-[0.16em] text-[var(--accent-soft)]">PROGRESSO</p>
             <div className="mt-3 flex items-center justify-between">
               <span className="font-[family:var(--font-display)] text-[22px] text-white">75%</span>
-              <span className="text-[12px] text-white/58">missão principal</span>
+              <span className="text-[12px] text-white/58">missÃ£o principal</span>
             </div>
             <div className="mt-3 h-[6px] rounded-full bg-white/10">
               <div className="h-full w-[75%] rounded-full bg-[var(--accent-soft)] shadow-[0_0_18px_rgba(107,217,107,0.45)]" />
@@ -500,7 +500,7 @@ export function MapPreview() {
           </div>
 
           <div className="rounded-[22px] border border-[#224222] bg-[rgba(0,18,0,0.38)] p-4 backdrop-blur-[4px]">
-            <p className="text-[11px] tracking-[0.16em] text-[var(--accent-soft)]">NÍVEL ATUAL</p>
+            <p className="text-[11px] tracking-[0.16em] text-[var(--accent-soft)]">NÃVEL ATUAL</p>
             <div className="mt-3 flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[rgba(107,217,107,0.08)] font-[family:var(--font-display)] text-[18px] text-[var(--accent-soft)]">
                 7
