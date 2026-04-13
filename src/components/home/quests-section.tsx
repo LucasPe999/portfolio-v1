@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
 import {
   Card,
   CardContent,
@@ -17,6 +18,7 @@ const arrowRight =
   "https://www.figma.com/api/mcp/asset/b84950e5-dfb8-4dc2-a693-76494b7e71e3";
 const clickmaxPreviewImage =
   "https://www.figma.com/api/mcp/asset/0cd7f8fc-71af-4dae-ad01-05aa6d579ff8";
+const ecomPreviewImage = "/ecomtab2.png";
 
 type QuestTab = {
   id: string;
@@ -26,9 +28,13 @@ type QuestTab = {
   year: string;
   client: string;
   duration: string;
+  complexity: string;
   preview: string;
   context: string;
+  introTitle: string;
   intro: string[];
+  scaleTitle: string;
+  scaleLead?: string;
   scale: string[];
   platformUrl?: string;
 };
@@ -39,81 +45,117 @@ const questTabs: QuestTab[] = [
     label: "FURION",
     title: "THE HUNT OF FURION",
     description:
-      "Plataforma de inteligência artificial focada em automação e criação de conteúdos para marketing digital, oferecendo ferramentas para geração de textos, roteiros, anúncios e materiais estratégicos, com o objetivo de acelerar processos criativos e de produção.",
-    year: "2025",
+      "Plataforma de inteligência artificial focada em automação e criação de conteúdos para marketing digital, oferecendo ferramentas para geração de textos, roteiros, anúncios e materiais estratégicos com velocidade e consistência.",
+    year: "2023 - 2025",
     client: "BILHON",
     duration: "6 MESES",
+    complexity: "MUITO ALTA",
     preview: "https://www.figma.com/api/mcp/asset/0e802fba-679f-4bb9-87dc-ef23cc9b8d80",
     context:
-      "Apesar do potencial tecnológico, a plataforma enfrentava desafios relacionados à experiência do usuário, principalmente devido à complexidade das funcionalidades e à necessidade de atender diferentes perfis de uso, do iniciante ao avançado. O projeto foi estruturado para reorganizar a experiência, reduzir fricções e transformar o produto em uma ferramenta mais clara, escalável e orientada à ação.",
+      "Apesar do forte potencial tecnológico, a plataforma enfrentava desafios de experiência do usuário por conta da complexidade das funcionalidades e da necessidade de atender perfis muito diferentes, do iniciante ao avançado. O projeto foi estruturado para reorganizar a experiência, reduzir fricções e transformar o produto em uma ferramenta mais clara, escalável e orientada à ação.",
+    introTitle: "Prólogo - Início do desenvolvimento",
     intro: [
-      "Foram mapeadas quais telas seriam desenvolvidas. Com isso, ataquei primeiramente os fluxos de criação de experimentos e organização de projetos; posteriormente, foquei em alinhar todos os componentes para que a escalabilidade fosse facilitada.",
-      "Após um alinhamento visual, chegamos ao modelo final de estética e iniciei o desenvolvimento do board, que seria a parte mais complexa.",
+      "Foram mapeadas as principais telas e fluxos a serem desenvolvidos. A primeira frente foi a criação de experimentos e a organização de projetos, preparando uma base sólida para o restante da plataforma.",
+      "Depois do alinhamento visual, a estética final foi consolidada e o desenvolvimento do board passou a ser a etapa central do projeto, exigindo mais profundidade estrutural.",
     ],
+    scaleTitle: "Boss - Escalabilidade do projeto",
+    scaleLead:
+      "Após validar os pontos mais críticos, o projeto avançou para uma fase de expansão, sempre com foco em consistência visual, boas práticas e organização para o time de desenvolvimento.",
     scale: [
-      "Versões dark e light.",
-      "Responsividade.",
-      "Versão mobile.",
+      "Versões dark e light bem estruturadas.",
+      "Responsividade entre diferentes formatos.",
+      "Versão mobile pensada desde a base.",
       "Design system robusto e organizado.",
     ],
     platformUrl: "https://app.furion.ai/auth/login",
+  },
+  {
+    id: "clickmax",
+    label: "CLICKMAX",
+    title: "CLICKMAX EQUALIZATION",
+    description:
+      "Plataforma voltada para gestão e otimização de marketing digital, centralizando anúncios, produtos e métricas em um único ambiente. O produto foi pensado para facilitar a operação de campanhas com leitura clara de dados e eficiência na tomada de decisão.",
+    year: "2025",
+    client: "BILHON",
+    duration: "3 MESES",
+    complexity: "MUITO ALTA",
+    preview: clickmaxPreviewImage,
+    context:
+      "A proposta do projeto era finalizar as features restantes em três meses para preparar o lançamento da plataforma. Atuei com foco em Funnel Builder, Workflow Builder, Área de Membros, Marketplace e Checkout, em parceria direta com o time de design do cliente.",
+    introTitle: "Prólogo - Ambientação",
+    intro: [
+      "Por ser um projeto com prazo curto, foi necessário mergulhar rapidamente no processo do cliente e na regra de negócio, conciliando diferentes frentes ao mesmo tempo.",
+      "Weeklies, alinhamentos frequentes e acompanhamento diário foram essenciais para garantir clareza entre design, escopo e produção.",
+    ],
+    scaleTitle: "Boss - Entregas e novas features",
+    scaleLead:
+      "O desenvolvimento seguiu um roadmap bem definido, enquanto novas features eram construídas em paralelo para validação e apresentação junto ao cliente.",
+    scale: [
+      "Fluxo completo do Funnel Builder.",
+      "Fluxo completo e configurações do Workflow Builder.",
+      "Área de membros com personalização e visualização final.",
+      "Marketplace e features de checkout completas.",
+    ],
+    platformUrl: "https://clickmax.io/",
+  },
+  {
+    id: "ecom",
+    label: "ECOM",
+    title: "THE ECOM ANOMALY",
+    description:
+      "Plataforma focada em simular e gerir a migração para o mercado livre de energia, contando com um simulador completo em tempo real e uma plataforma de gestão robusta para que agentes possam atender clientes e acompanhar seus negócios sem complexidade, tudo no modelo white label.",
+    year: "2023 - 2025",
+    client: "ECOM",
+    duration: "ESCOPO ABERTO",
+    complexity: "ALTA",
+    preview: ecomPreviewImage,
+    context:
+      "O projeto nasceu com a proposta de ser um simulador de energia clean e rápido, permitindo que o cliente entendesse quanto poderia economizar a partir da própria conta de luz. Depois, evoluiu para contratação e, em seguida, para um modelo white label que permite a outras empresas terem seu próprio sistema de gestão de migração para o mercado livre de energia.",
+    introTitle: "Prólogo - O simulador",
+    intro: [
+      "A ideia inicial era simples: um simulador que lesse a fatura da conta de luz do cliente e realizasse uma simulação em tempo real. O projeto nasceu com uma UI bastante clean e uma funcionalidade que rapidamente fez com que evoluíssemos a plataforma.",
+      "O primeiro passo após isso foi o modelo white label, com todo um design system montado para que, em minutos, fosse possível criar uma interface totalmente nova para que outras empresas aderissem ao projeto.",
+    ],
+    scaleTitle: "Boss - A Plataforma de gestão",
+    scaleLead:
+      "Após a entrega do simulador, partimos para a segunda etapa: desenvolver a plataforma de gestão para que agentes realizassem o atendimento a clientes, finalizassem contratos e acompanhassem suas vendas de maneira fácil e rápida. A partir daí surgiram novos desdobramentos do ecossistema, todos mantendo a identidade central do simulador.",
+    scale: [
+      "Projeto todo preparado para ser white label.",
+      "Plataforma de gestão criada e prototipada para testes de usabilidade.",
+      "Sistema de variantes e tokens no Figma para alterar as white labels em minutos.",
+      "Responsividade desde ultra wide até mobile.",
+    ],
+    platformUrl: "https://ecom-energia.economianafatura.com.br/jornada/dados/inicio",
   },
   {
     id: "ilotto",
     label: "ILOTTO",
     title: "ILOTTO EXPERIENCE",
     description:
-      "Plataforma de sorteios online em modelo whitelabel, com soluções web, mobile e painel de gestão integrados. O produto permite a criação, personalização e operação completa de campanhas de sorteio, oferecendo controle, escalabilidade e uma experiência consistente para operadores e usuários finais.",
+      "Plataforma de sorteios online em modelo white label, com soluções web, mobile e painel de gestão integrados. O produto permite criação, personalização e operação completa de campanhas, oferecendo controle, escalabilidade e uma experiência consistente.",
     year: "2024 - 2025",
     client: "ILOTTO",
     duration: "ESCOPO ABERTO",
+    complexity: "MUITO ALTA",
     preview: "/ilottoback.png",
     context:
-      "Projeto criado do zero para o cliente, desde o desenvolvimento da regra de negócio, análise de viabilidade legal, plataforma de gestão, responsividade e novas features constantes.",
+      "Projeto criado do zero para o cliente, desde o desenvolvimento da regra de negócio e análise de viabilidade legal até a plataforma de gestão, responsividade e criação contínua de novas features.",
+    introTitle: "Prólogo - O início da jornada",
     intro: [
-      "O grande desafio desse projeto foi entender inicialmente qual caminho seria tomado, pois como iniciamos o desenvolvimento junto da criação da empresa, muitos detalhes ainda estavam sendo definidos.",
-      "A partir disso, toda plataforma de gestão foi criada, para que o time de desenvolvimento pudesse aplicar toda lógica da plataforma, para quando iniciasse o site em si, a lógica para a criação de sorteios já estivesse pronta.",
-            "Posteriormente iniciamos a criação das telas web/mobile, sempre seguindo todas as boas práticas de design para que o desenvolvimento fosse ágil e sem intercorrências, entregando assim, o projeto finalizado.",
+      "O grande desafio foi definir o caminho do produto enquanto a própria empresa estava sendo estruturada. Muitas decisões ainda estavam em aberto e exigiam construção conjunta.",
+      "A plataforma de gestão veio primeiro, para que o time de desenvolvimento pudesse aplicar a lógica principal antes da entrada do site. Depois disso, as interfaces web e mobile foram desenhadas com foco em agilidade e clareza.",
     ],
+    scaleTitle: "Boss - Desafio multicolorido",
+    scaleLead:
+      "Depois da validação inicial, o produto evoluiu com novas features, como raspadinhas, feed de ganhadores, premiações instantâneas e a camada white label, exigindo um sistema visual mais flexível.",
     scale: [
-      "Sistema visual mais consistente.",
-      "Melhoria de navegação.",
-      "Padronização de componentes.",
-      "Maior escalabilidade para novas features.",
+      "Tokens de variantes de cores bem definidos.",
+      "Adequação rápida das versões white label para apresentação.",
+      "Novas features aplicadas com foco em responsividade.",
+      "Escalabilidade visual para crescimento do produto.",
     ],
     platformUrl: "https://ilotto.com.br/",
   },
-  {
-    id: "clickmax",
-    label: "CLICKMAX",
-    title: "CLICKMAX GROWTH HUB",
-    description:
-      "Ecossistema visual para criação de landing pages com foco em conversão, estratégia comercial e organização modular.",
-    year: "2025",
-    client: "CLICKMAX",
-    duration: "5 MESES",
-    preview: "https://www.figma.com/api/mcp/asset/0e802fba-679f-4bb9-87dc-ef23cc9b8d80",
-    context:
-      "O desafio central era traduzir uma oferta comercial ampla em uma experiência objetiva, premium e orientada a resultado, sem perder flexibilidade.",
-    intro: [
-      "O processo iniciou pela definição de estrutura modular, combinando argumentação comercial com clareza visual.",
-      "Em seguida, os fluxos foram refinados para reduzir atrito e aumentar foco nas ações principais.",
-    ],
-    scale: [
-      "Escalabilidade de módulos.",
-      "Aprimoramento visual do funil.",
-      "Padrões reutilizáveis.",
-      "Maior consistência entre páginas.",
-    ],
-    platformUrl: "https://clickmax.io/",
-  },
-];
-
-const introBullets = [
-  "Estruturação de um sistema base para evolução futura.",
-  "Melhoria da navegação.",
-  "Simplificação de fluxos críticos.",
-  "Inclusão de indicadores de contexto e estados ativos.",
 ];
 
 function InfoDivider({ title }: { title: string }) {
@@ -204,7 +246,7 @@ function MobileQuestCard({
           <div className="space-y-2">
             <div className="flex items-center justify-between text-[11px] tracking-[0.12em]">
               <span className="text-[var(--accent-soft)]">COMPLEXIDADE</span>
-              <span className="text-white/76">MUITO ALTA</span>
+              <span className="text-white/76">{quest.complexity}</span>
             </div>
             <div className="h-[6px] rounded-full bg-white/10">
               <div className="h-full w-full rounded-full bg-[var(--accent-soft)] shadow-[0_0_18px_rgba(191,129,255,0.5)]" />
@@ -218,7 +260,7 @@ function MobileQuestCard({
 
           <div className="space-y-3 rounded-[22px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.34)] p-4">
             <p className="font-[family:var(--font-display)] text-[17px] text-[var(--accent-soft)]">
-              Prólogo
+              {quest.introTitle}
             </p>
             <div className="space-y-3 text-[14px] leading-6 text-white/72">
               {quest.intro.map((paragraph) => (
@@ -229,8 +271,11 @@ function MobileQuestCard({
 
           <div className="space-y-3 rounded-[22px] border border-[#4d2f7a] bg-[rgba(19,10,34,0.34)] p-4">
             <p className="font-[family:var(--font-display)] text-[17px] text-[var(--accent-soft)]">
-              Escalabilidade
+              {quest.scaleTitle}
             </p>
+            {quest.scaleLead ? (
+              <p className="text-[14px] leading-6 text-white/72">{quest.scaleLead}</p>
+            ) : null}
             <ul className="space-y-2 text-[14px] leading-6 text-white/72">
               {quest.scale.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -246,17 +291,146 @@ function MobileQuestCard({
   );
 }
 
+function DesktopQuestCard({
+  quest,
+  onOpenPreview,
+}: {
+  quest: QuestTab;
+  onOpenPreview: (quest: QuestTab) => void;
+}) {
+  return (
+    <Card className="overflow-hidden rounded-[18px] border border-white/12 bg-white/6 text-white shadow-none backdrop-blur-md">
+      <CardContent className="grid min-h-[686px] gap-6 p-6 lg:grid-cols-[430px_minmax(0,1fr)]">
+        <button
+          type="button"
+          onClick={() => onOpenPreview(quest)}
+          className="group relative min-h-[540px] overflow-hidden rounded-[16px] border border-white/10 text-left"
+        >
+          <Image
+            src={quest.preview}
+            alt={`Preview do projeto ${quest.label}`}
+            fill
+            className="object-cover object-center transition duration-300 group-hover:scale-[1.03]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.2))]" />
+          <div className="absolute right-4 top-4 rounded-full border border-white/12 bg-black/35 px-3 py-1 text-[10px] tracking-[0.16em] text-white/80 backdrop-blur-md">
+            AMPLIAR
+          </div>
+        </button>
+
+        <div className="h-full rounded-[16px] border border-white/10 bg-[rgba(15,7,29,0.72)] p-6">
+          <CardHeader className="gap-4 p-0">
+            <div className="flex items-start justify-between gap-6">
+              <div className="max-w-[68%]">
+                <CardTitle className="font-[family:var(--font-display)] text-[clamp(22px,2.35vw,34px)] uppercase leading-none tracking-[0.01em] text-white">
+                  {quest.title}
+                </CardTitle>
+                <CardDescription className="mt-2 text-[clamp(10px,0.8vw,12px)] leading-[1.35] text-white/72">
+                  {quest.description}
+                </CardDescription>
+              </div>
+              {quest.platformUrl ? (
+                <a
+                  href={quest.platformUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-white/14 bg-white/[0.04] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-white transition hover:border-white/30 hover:bg-white/[0.07]"
+                >
+                  <span className="block text-center">ACESSAR PLATAFORMA</span>
+                  <Image
+                    src={arrowRight}
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="absolute right-5 h-4 w-4"
+                  />
+                </a>
+              ) : null}
+            </div>
+          </CardHeader>
+
+          <CardContent className="mt-4 flex flex-col gap-6 p-0">
+            <section className="grid gap-6 lg:grid-cols-[210px_minmax(0,1fr)]">
+              <div className="w-[210px] shrink-0 space-y-7">
+                <div className="space-y-0">
+                  <div className="flex items-center justify-between text-[12px]">
+                    <span className="text-white">COMPLEXIDADE</span>
+                    <span className="text-white/72">{quest.complexity}</span>
+                  </div>
+                  <div className="h-[6px] w-[210px] rounded-[500px] bg-white shadow-[0_0_18px_rgba(255,255,255,0.28)]" />
+                </div>
+
+                <dl className="space-y-0 text-[12px]">
+                  <div className="flex items-center justify-between">
+                    <dt className="text-white">ANO</dt>
+                    <dd className="text-white/72">{quest.year}</dd>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <dt className="text-white">CLIENTE</dt>
+                    <dd className="text-white/72">{quest.client}</dd>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <dt className="text-white">DESENVOLVIMENTO</dt>
+                    <dd className="text-white/72">{quest.duration}</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div className="min-w-0 flex-1 space-y-2">
+                <div className="space-y-1">
+                  <p className="text-[12px] text-white">CONTEXTO</p>
+                  <div className="h-px w-full bg-white/28" />
+                </div>
+                <p className="text-[12px] leading-[1.35] text-white/72">{quest.context}</p>
+              </div>
+            </section>
+
+            <section className="space-y-4">
+              <h3 className="font-[family:var(--font-display)] text-[16px] text-white">
+                {quest.introTitle}
+              </h3>
+              <div className="space-y-4 text-[12px] leading-[1.24] text-white/72">
+                {quest.intro.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+
+            <section className="space-y-4">
+              <h3 className="font-[family:var(--font-display)] text-[16px] text-white">
+                {quest.scaleTitle}
+              </h3>
+              <div className="space-y-4 text-[12px] leading-[1.24] text-white/72">
+                {quest.scaleLead ? <p>{quest.scaleLead}</p> : null}
+                <ul className="list-disc space-y-0.5 pl-4">
+                  {quest.scale.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          </CardContent>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export function QuestsSection() {
   const [activeProjectTab, setActiveProjectTab] = useState("overview");
   const [previewQuest, setPreviewQuest] = useState<QuestTab | null>(null);
-  const furionQuest = questTabs[0];
-  const ilottoQuest = questTabs.find((quest) => quest.id === "ilotto") ?? questTabs[1] ?? questTabs[0];
+
+  const furionQuest = questTabs.find((quest) => quest.id === "furion") ?? questTabs[0];
   const clickmaxQuest = questTabs.find((quest) => quest.id === "clickmax") ?? questTabs[0];
+  const ecomQuest = questTabs.find((quest) => quest.id === "ecom") ?? questTabs[0];
+  const ilottoQuest = questTabs.find((quest) => quest.id === "ilotto") ?? questTabs[0];
 
   useEffect(() => {
     const syncQuestFromHash = () => {
       if (window.location.hash === "#quests-clickmax") {
         setActiveProjectTab("analytics");
+      } else if (window.location.hash === "#quests-ecom") {
+        setActiveProjectTab("ecom");
       } else if (window.location.hash === "#quests-ilotto") {
         setActiveProjectTab("operations");
       } else {
@@ -273,7 +447,9 @@ export function QuestsSection() {
   return (
     <>
       <div id="quests-clickmax" className="relative -top-16" aria-hidden="true" />
+      <div id="quests-ecom" className="relative -top-16" aria-hidden="true" />
       <div id="quests-ilotto" className="relative -top-16" aria-hidden="true" />
+
       <section
         id="quests"
         className="relative overflow-hidden scroll-mt-16"
@@ -301,31 +477,60 @@ export function QuestsSection() {
 
           <article className="relative mt-6 w-full max-w-[1458px]">
             <div className="lg:hidden">
-              <Tabs defaultValue="overview" value={activeProjectTab} onValueChange={setActiveProjectTab} className="w-full">
+              <Tabs
+                defaultValue="overview"
+                value={activeProjectTab}
+                onValueChange={setActiveProjectTab}
+                className="w-full"
+              >
                 <TabsList className="mb-4 inline-flex rounded-[14px] border border-white/10 bg-white/8 p-1 shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md">
                   <TabsTrigger value="overview" className="rounded-[10px] px-4 py-2 text-[14px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black">Furion</TabsTrigger>
                   <TabsTrigger value="analytics" className="rounded-[10px] px-4 py-2 text-[14px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black">Clickmax</TabsTrigger>
+                  <TabsTrigger value="ecom" className="rounded-[10px] px-4 py-2 text-[14px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black">Ecom</TabsTrigger>
                   <TabsTrigger value="operations" className="rounded-[10px] px-4 py-2 text-[14px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black">Ilotto</TabsTrigger>
                 </TabsList>
-                <TabsContent value="overview"><MobileQuestCard quest={furionQuest} currentIndex={0} onOpenPreview={setPreviewQuest} /></TabsContent>
-                <TabsContent value="analytics"><MobileQuestCard quest={clickmaxQuest} currentIndex={2} onOpenPreview={setPreviewQuest} /></TabsContent>
-                <TabsContent value="operations"><MobileQuestCard quest={ilottoQuest} currentIndex={1} onOpenPreview={setPreviewQuest} /></TabsContent>
+
+                <TabsContent value="overview">
+                  <MobileQuestCard quest={furionQuest} currentIndex={0} onOpenPreview={setPreviewQuest} />
+                </TabsContent>
+                <TabsContent value="analytics">
+                  <MobileQuestCard quest={clickmaxQuest} currentIndex={1} onOpenPreview={setPreviewQuest} />
+                </TabsContent>
+                <TabsContent value="ecom">
+                  <MobileQuestCard quest={ecomQuest} currentIndex={2} onOpenPreview={setPreviewQuest} />
+                </TabsContent>
+                <TabsContent value="operations">
+                  <MobileQuestCard quest={ilottoQuest} currentIndex={3} onOpenPreview={setPreviewQuest} />
+                </TabsContent>
               </Tabs>
             </div>
 
             <div className="mt-14 hidden lg:block">
-              <Tabs defaultValue="overview" value={activeProjectTab} onValueChange={setActiveProjectTab} className="mx-auto w-full max-w-[1458px]">
+              <Tabs
+                defaultValue="overview"
+                value={activeProjectTab}
+                onValueChange={setActiveProjectTab}
+                className="mx-auto w-full max-w-[1458px]"
+              >
                 <TabsList className="inline-flex rounded-[14px] border border-white/10 bg-white/8 p-1 shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md">
                   <TabsTrigger value="overview" className="rounded-[10px] px-4 py-2 text-[15px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black">Furion</TabsTrigger>
                   <TabsTrigger value="analytics" className="rounded-[10px] px-4 py-2 text-[15px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black">Clickmax</TabsTrigger>
+                  <TabsTrigger value="ecom" className="rounded-[10px] px-4 py-2 text-[15px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black">Ecom</TabsTrigger>
                   <TabsTrigger value="operations" className="rounded-[10px] px-4 py-2 text-[15px] text-white/68 transition data-[state=active]:bg-white data-[state=active]:text-black">Ilotto</TabsTrigger>
                 </TabsList>
 
-                <TabsContent value="overview" className="mt-4"><Card className="rounded-[18px] border border-white/12 bg-white/6 text-white shadow-none backdrop-blur-md"><CardContent className="grid gap-6 p-6 lg:grid-cols-[430px_minmax(0,1fr)]"><button type="button" onClick={() => setPreviewQuest(furionQuest)} className="group relative min-h-[540px] overflow-hidden rounded-[16px] border border-white/10 text-left"><Image src={furionQuest.preview} alt={`Preview do projeto ${furionQuest.label}`} fill priority className="object-cover object-center transition duration-300 group-hover:scale-[1.03]" /><div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.2))]" /><div className="absolute right-4 top-4 rounded-full border border-white/12 bg-black/35 px-3 py-1 text-[10px] tracking-[0.16em] text-white/80 backdrop-blur-md">AMPLIAR</div></button><div className="rounded-[16px] border border-white/10 bg-[rgba(15,7,29,0.72)] p-6"><CardHeader className="gap-4 p-0"><div className="flex items-start justify-between gap-6"><div className="max-w-[68%]"><CardTitle className="font-[family:var(--font-display)] text-[clamp(22px,2.35vw,34px)] uppercase leading-none tracking-[0.01em] text-white">{furionQuest.title}</CardTitle><CardDescription className="mt-2 text-[clamp(10px,0.8vw,12px)] leading-[1.35] text-white/72">{furionQuest.description}</CardDescription></div>{furionQuest.platformUrl ? (<a href={furionQuest.platformUrl} target="_blank" rel="noreferrer" className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-white/14 bg-white/[0.04] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-white transition hover:border-white/30 hover:bg-white/[0.07]"><span className="block text-center">Acessar plataforma</span><Image src={arrowRight} alt="" width={16} height={16} className="absolute right-5 h-4 w-4" /></a>) : null}</div></CardHeader><CardContent className="mt-6 flex flex-col gap-6 p-0"><section className="grid gap-6 lg:grid-cols-[210px_minmax(0,1fr)]"><div className="space-y-6"><div className="space-y-1"><div className="flex items-center justify-between text-[12px] leading-none"><span className="text-white">COMPLEXIDADE</span><span className="text-white/72">MUITO ALTA</span></div><div className="h-[6px] w-full rounded-full bg-white/10"><div className="h-full w-full rounded-full bg-white shadow-[0_0_18px_rgba(255,255,255,0.28)]" /></div></div><dl className="space-y-1 text-[12px] leading-[1.24]"><div className="flex items-center justify-between gap-4"><dt className="text-white">ANO</dt><dd className="text-white/72">{furionQuest.year}</dd></div><div className="flex items-center justify-between gap-4"><dt className="text-white">CLIENTE</dt><dd className="text-white/72">{furionQuest.client}</dd></div><div className="flex items-center justify-between gap-4"><dt className="text-white">DESENVOLVIMENTO</dt><dd className="text-white/72">{furionQuest.duration}</dd></div></dl></div><div className="space-y-4"><InfoDivider title="CONTEXTO" /><p className="text-[12px] leading-[1.35] text-white/72">{furionQuest.context}</p></div></section><section className="space-y-3"><h3 className="font-[family:var(--font-display)] text-[16px] text-white">Prólogo - Início do desenvolvimento</h3><div className="space-y-4 text-[12px] leading-[1.35] text-white/72">{furionQuest.intro.map((paragraph) => (<p key={paragraph}>{paragraph}</p>))}<ul className="list-disc space-y-0.5 pl-4">{introBullets.map((item) => (<li key={item}>{item}</li>))}</ul></div></section><section className="space-y-3"><h3 className="font-[family:var(--font-display)] text-[16px] text-white">Boss - Escalabilidade do projeto</h3><div className="space-y-4 text-[12px] leading-[1.35] text-white/72"><p>Após validar todos os pontos necessários, foi realizada a escalabilidade do projeto, focando em desenvolver todas as telas necessárias, sempre focando em consistência visual e boas práticas de design, além de focar muito em entregar para o time de desenvolvimento um projeto organizado.</p><ul className="list-disc space-y-0.5 pl-4">{furionQuest.scale.map((item) => (<li key={item}>{item}</li>))}</ul></div></section></CardContent></div></CardContent></Card></TabsContent>
-
-                <TabsContent value="analytics" className="mt-4"><Card className="overflow-hidden rounded-[18px] border border-white/12 bg-white/6 text-white shadow-none backdrop-blur-md"><CardContent className="grid min-h-[686px] gap-6 p-6 lg:grid-cols-[430px_minmax(0,1fr)]"><div className="relative min-h-[540px] overflow-hidden rounded-[16px] border border-white/10"><Image src={clickmaxPreviewImage} alt="Preview do projeto Clickmax" fill className="object-cover" /></div><div className="h-full rounded-[16px] border border-white/10 bg-[rgba(15,7,29,0.72)] p-6"><CardHeader className="gap-4 p-0"><div className="flex items-start justify-between gap-6"><div className="max-w-[68%]"><CardTitle className="font-[family:var(--font-display)] text-[clamp(22px,2.35vw,34px)] uppercase leading-none tracking-[0.01em] text-white">CLICKMAX EQUALIZATION</CardTitle><CardDescription className="mt-2 text-[clamp(10px,0.8vw,12px)] leading-[1.35] text-white/72">Plataforma voltada para gestão e otimização de marketing digital, centralizando anúncios, produtos e métricas em um único ambiente. O produto foi pensado para facilitar a operação de campanhas, oferecendo controle, leitura clara de dados e eficiência na tomada de decisão.</CardDescription></div><a href="https://clickmax.io/" target="_blank" rel="noreferrer" className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-white/14 bg-white/[0.04] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-white transition hover:border-white/30 hover:bg-white/[0.07]"><span className="block text-center">ACESSAR PLATAFORMA</span><Image src={arrowRight} alt="" width={16} height={16} className="absolute right-5 h-4 w-4" /></a></div></CardHeader><CardContent className="mt-4 flex flex-col gap-6 p-0"><section className="grid gap-6 lg:grid-cols-[210px_minmax(0,1fr)]"><div className="w-[210px] shrink-0 space-y-7"><div className="space-y-0"><div className="flex items-center justify-between text-[12px]"><span className="text-white">COMPLEXIDADE</span><span className="text-white/72">MUITO ALTA</span></div><div className="h-[6px] w-[210px] rounded-[500px] bg-white shadow-[0_0_18px_rgba(255,255,255,0.28)]" /></div><dl className="space-y-0 text-[12px]"><div className="flex items-center justify-between"><dt className="text-white">ANO</dt><dd className="text-white/72">2025</dd></div><div className="flex items-center justify-between"><dt className="text-white">CLIENTE</dt><dd className="text-white/72">BILHON</dd></div><div className="flex items-center justify-between"><dt className="text-white">DESENVOLVIMENTO</dt><dd className="text-white/72">3 MESES</dd></div></dl></div><div className="min-w-0 flex-1 space-y-2"><div className="space-y-1"><p className="text-[12px] text-white">CONTEXTO</p><div className="h-px w-full bg-white/28" /></div><p className="text-[12px] leading-[1.35] text-white/72">A proposta do projeto era finalizar as features que estavam faltando em 3 meses para que a plataforma estivesse pronta para ser lançada, Atuei com foco nas áreas de Funnel Builder, Workflow Builder, Área de Membros, Marketplace e Checkout diretamente com o time de designers do cliente, servindo como um momento de desafio e aprendizado diário para que todo o conteúdo proposto fosse entregue.</p></div></section><section className="space-y-4"><h3 className="font-[family:var(--font-display)] text-[16px] text-white">Prólogo - Ambientação</h3><div className="space-y-4 text-[12px] leading-[1.24] text-white/72"><p>Por ser um projeto rápido, foi necessário me ambientar rapidamente ao processo de desenvolvimento do cliente, além do entendimento completo da regra de negócio. Foi necessário atuar em mais de um projeto ao mesmo tempo para que o time de desenvolvedores pudesse iniciar o processo de produção no código, para isso foi definido weeklies para alinhamento das demandas e atualizações diárias do que era feito.</p><ul className="list-disc space-y-0.5 pl-4"><li>Estudo aplicado na regra de negócio dos projetos e benchmarking de propostas similares.</li><li>Exploração diária junto ao time do cliente para melhor alinhamento.</li><li>Apresentação de propostas de fluxos para que nada passasse sem aprovação.</li><li>Clareza nos fluxos para o time de desenvolvimento.</li></ul></div></section><section className="space-y-4"><h3 className="font-[family:var(--font-display)] text-[16px] text-white">Boss - Entregas e novas features</h3><div className="space-y-4 text-[12px] leading-[1.24] text-white/72"><p>O desenvolvimento foi totalmente focado em um roadmap criado, sendo assim, todas as entregas procuravam seguir o caminho proposto para que o time de desenvolvimento seguisse o plano inicialmente planejado, juntamente com isso, foram criadas novas features que eram atacadas simultaneamente. O modelo de trabalho foi o de atacar as frentes planejadas no roadmap para o desenvolvimento e criar as novas features para apresentação junto ao cliente. No final, foram entregues todas as tarefas escopadas no início, além das novas features que foram aparecendo durante o processo.</p><ul className="list-disc space-y-0.5 pl-4"><li>Fluxo completo do Funnel builder.</li><li>Fluxo completo e configurações do Workflow builder.</li><li>Área de membros com a opção de personalização e modelo de visualização finalizada.</li><li>Marketplace e features de checkout completas.</li></ul></div></section></CardContent></div></CardContent></Card></TabsContent>
-
-                <TabsContent value="operations" className="mt-4"><Card className="overflow-hidden rounded-[18px] border border-white/12 bg-white/6 text-white shadow-none backdrop-blur-md"><CardContent className="grid min-h-[686px] gap-6 p-6 lg:grid-cols-[430px_minmax(0,1fr)]"><div className="relative min-h-[540px] overflow-hidden rounded-[16px] border border-white/10"><Image src={ilottoQuest.preview} alt={`Preview do projeto ${ilottoQuest.label}`} fill className="object-cover" /></div><div className="h-full rounded-[16px] border border-white/10 bg-[rgba(15,7,29,0.72)] p-6"><CardHeader className="gap-4 p-0"><div className="flex items-start justify-between gap-6"><div className="max-w-[68%]"><CardTitle className="font-[family:var(--font-display)] text-[clamp(22px,2.35vw,34px)] uppercase leading-none tracking-[0.01em] text-white">{ilottoQuest.title}</CardTitle><CardDescription className="mt-2 text-[clamp(10px,0.8vw,12px)] leading-[1.35] text-white/72">{ilottoQuest.description}</CardDescription></div>{ilottoQuest.platformUrl ? (<a href={ilottoQuest.platformUrl} target="_blank" rel="noreferrer" className="relative inline-flex h-10 shrink-0 items-center justify-center rounded-[12px] border border-white/14 bg-white/[0.04] px-6 text-[13px] font-bold uppercase leading-none tracking-[0.02em] text-white transition hover:border-white/30 hover:bg-white/[0.07]"><span className="block text-center">ACESSAR PLATAFORMA</span><Image src={arrowRight} alt="" width={16} height={16} className="absolute right-5 h-4 w-4" /></a>) : null}</div></CardHeader><CardContent className="mt-4 flex flex-col gap-6 p-0"><section className="grid gap-6 lg:grid-cols-[210px_minmax(0,1fr)]"><div className="w-[210px] shrink-0 space-y-7"><div className="space-y-0"><div className="flex items-center justify-between text-[12px]"><span className="text-white">COMPLEXIDADE</span><span className="text-white/72">MUITO ALTA</span></div><div className="h-[6px] w-[210px] rounded-[500px] bg-white shadow-[0_0_18px_rgba(255,255,255,0.28)]" /></div><dl className="space-y-0 text-[12px]"><div className="flex items-center justify-between"><dt className="text-white">ANO</dt><dd className="text-white/72">{ilottoQuest.year}</dd></div><div className="flex items-center justify-between"><dt className="text-white">CLIENTE</dt><dd className="text-white/72">{ilottoQuest.client}</dd></div><div className="flex items-center justify-between"><dt className="text-white">DESENVOLVIMENTO</dt><dd className="text-white/72">{ilottoQuest.duration}</dd></div></dl></div><div className="min-w-0 flex-1 space-y-2"><div className="space-y-1"><p className="text-[12px] text-white">CONTEXTO</p><div className="h-px w-full bg-white/28" /></div><p className="text-[12px] leading-[1.35] text-white/72">{ilottoQuest.context}</p></div></section><section className="space-y-4"><h3 className="font-[family:var(--font-display)] text-[16px] text-white">Prólogo - O início da jornada</h3><div className="space-y-4 text-[12px] leading-[1.24] text-white/72">{ilottoQuest.intro.map((paragraph) => (<p key={paragraph}>{paragraph}</p>))}</div></section><section className="space-y-4"><h3 className="font-[family:var(--font-display)] text-[16px] text-white">Boss - Desafio multicolorido</h3><div className="space-y-4 text-[12px] leading-[1.24] text-white/72"><p>Após entregue e validado, iniciamos o real desafio: aplicar novas features, como o sistema de raspadinhas, feed de ganhadores, premiações instantâneas e o sistema de white label. Para isso, foi necessário readequar todo o Figma para que as cores fossem facilmente ajustadas e fosse possível apresentar ao cliente sua plataforma já com sua cara.</p><ul className="list-disc space-y-0.5 pl-4"><li>Tokens de variantes de cores bem definidos.</li><li>Adequação rápida das versões em white label para apresentar ao cliente.</li><li>Novas features aplicadas todas em responsividade.</li></ul></div></section></CardContent></div></CardContent></Card></TabsContent>
+                <TabsContent value="overview" className="mt-4">
+                  <DesktopQuestCard quest={furionQuest} onOpenPreview={setPreviewQuest} />
+                </TabsContent>
+                <TabsContent value="analytics" className="mt-4">
+                  <DesktopQuestCard quest={clickmaxQuest} onOpenPreview={setPreviewQuest} />
+                </TabsContent>
+                <TabsContent value="ecom" className="mt-4">
+                  <DesktopQuestCard quest={ecomQuest} onOpenPreview={setPreviewQuest} />
+                </TabsContent>
+                <TabsContent value="operations" className="mt-4">
+                  <DesktopQuestCard quest={ilottoQuest} onOpenPreview={setPreviewQuest} />
+                </TabsContent>
               </Tabs>
             </div>
           </article>
@@ -333,17 +538,38 @@ export function QuestsSection() {
 
         {previewQuest ? (
           <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[rgba(0,0,0,0.84)] p-4 backdrop-blur-md sm:p-6">
-            <button type="button" className="absolute inset-0" aria-label="Fechar imagem ampliada" onClick={() => setPreviewQuest(null)} />
+            <button
+              type="button"
+              className="absolute inset-0"
+              aria-label="Fechar imagem ampliada"
+              onClick={() => setPreviewQuest(null)}
+            />
             <div className="relative z-[1] w-full max-w-6xl">
               <div className="mb-4 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-[11px] tracking-[0.18em] text-[var(--accent-soft)]">PREVIEW EXPANDIDO</p>
-                  <p className="mt-1 font-[family:var(--font-display)] text-[22px] uppercase text-white">{previewQuest.title}</p>
+                  <p className="text-[11px] tracking-[0.18em] text-[var(--accent-soft)]">
+                    PREVIEW EXPANDIDO
+                  </p>
+                  <p className="mt-1 font-[family:var(--font-display)] text-[22px] uppercase text-white">
+                    {previewQuest.title}
+                  </p>
                 </div>
-                <button type="button" onClick={() => setPreviewQuest(null)} className="inline-flex h-11 items-center justify-center rounded-2xl border border-[#4d2f7a] bg-[rgba(19,10,34,0.82)] px-4 text-[11px] uppercase tracking-[0.14em] text-white/82 transition hover:border-[var(--accent-soft)] hover:text-white">Fechar</button>
+                <button
+                  type="button"
+                  onClick={() => setPreviewQuest(null)}
+                  className="inline-flex h-11 items-center justify-center rounded-2xl border border-[#4d2f7a] bg-[rgba(19,10,34,0.82)] px-4 text-[11px] uppercase tracking-[0.14em] text-white/82 transition hover:border-[var(--accent-soft)] hover:text-white"
+                >
+                  Fechar
+                </button>
               </div>
               <div className="relative aspect-[16/10] overflow-hidden rounded-[28px] border border-[#4d2f7a] bg-[rgba(15,7,29,0.92)] shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
-                <Image src={previewQuest.preview} alt={`Preview ampliado do projeto ${previewQuest.label}`} fill priority className="object-contain" />
+                <Image
+                  src={previewQuest.preview}
+                  alt={`Preview ampliado do projeto ${previewQuest.label}`}
+                  fill
+                  priority
+                  className="object-contain"
+                />
               </div>
             </div>
           </div>
