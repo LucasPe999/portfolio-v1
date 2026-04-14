@@ -9,6 +9,7 @@ const navItems = [
   { label: "Início", href: "#inicio" },
   { label: "Skills", href: "#skills" },
   { label: "Quests", href: "#quests" },
+  { label: "Highlights", href: "#highlights" },
   { label: "Background", href: "#background" },
   { label: "Contato", href: "#contato" },
 ];
@@ -17,6 +18,7 @@ const trackedSections = [
   { id: "inicio", href: "#inicio" },
   { id: "skills", href: "#skills" },
   { id: "quests", href: "#quests" },
+  { id: "highlights", href: "#highlights" },
   { id: "background", href: "#background" },
   { id: "contato", href: "#contato" },
 ];
