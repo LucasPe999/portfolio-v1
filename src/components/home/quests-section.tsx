@@ -14,10 +14,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const questsBackground = "/quests-background.png";
 const questsIcon = "/icons/map.svg";
-const arrowRight =
-  "https://www.figma.com/api/mcp/asset/b84950e5-dfb8-4dc2-a693-76494b7e71e3";
-const clickmaxPreviewImage =
-  "https://www.figma.com/api/mcp/asset/0cd7f8fc-71af-4dae-ad01-05aa6d579ff8";
+const arrowRight = "/icons/arrow.svg";
+const clickmaxPreviewImage = "/highlights/clickmax/screen-01.png";
 const ecomPreviewImage = "/ecomtab2.png";
 
 type QuestTab = {
@@ -50,7 +48,7 @@ const questTabs: QuestTab[] = [
     client: "BILHON",
     duration: "6 MESES",
     complexity: "MUITO ALTA",
-    preview: "https://www.figma.com/api/mcp/asset/0e802fba-679f-4bb9-87dc-ef23cc9b8d80",
+    preview: "/highlights/furion/screen-01.png",
     context:
       "Apesar do forte potencial tecnológico, a plataforma enfrentava desafios de experiência do usuário por conta da complexidade das funcionalidades e da necessidade de atender perfis muito diferentes, do iniciante ao avançado. O projeto foi estruturado para reorganizar a experiência, reduzir fricções e transformar o produto em uma ferramenta mais clara, escalável e orientada à ação.",
     introTitle: "Prólogo - Início do desenvolvimento",

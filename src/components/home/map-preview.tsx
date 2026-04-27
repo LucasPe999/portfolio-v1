@@ -66,7 +66,8 @@ const heroNodes: HeroNode[] = [
         title: "FURION",
         description:
           "Ferramenta com inteligência artificial voltada para marketing digital de alta performance, criada para otimizar anúncios, vendas e estratégias de conteúdo com mais velocidade e precisão.",
-        image: "https://www.figma.com/api/mcp/asset/0c29fd76-da06-4b9e-adde-a2dee8688dee",
+        image: "/highlights/furion/logo.png",
+        imageClassName: "object-contain p-2",
         buttonHref: "#quests",
       },
     },
@@ -98,8 +99,8 @@ const heroNodes: HeroNode[] = [
         title: "ILOTTO",
         description:
           "Plataforma de sorteios online com bilhetes instantâneos, raspadinhas e ferramentas de análise pensadas para dar mais controle a cada operação.",
-        image: "https://www.figma.com/api/mcp/asset/bf9edb8e-fe8c-4e7d-a735-a39f0c07aa22",
-        imageClassName: "scale-[1.7]",
+        image: "/highlights/logos/ilotto.png",
+        imageClassName: "object-contain p-2",
         buttonHref: "#quests-ilotto",
       },
     },
@@ -156,7 +157,8 @@ const heroNodes: HeroNode[] = [
         title: "CLICKMAX",
         description:
           "Plataforma completa para criar páginas, funis, proteger links, gerenciar leads e ativar mensagens personalizadas com eficiência.",
-        image: "https://www.figma.com/api/mcp/asset/0c29fd76-da06-4b9e-adde-a2dee8688dee",
+        image: "/highlights/logos/clickmax.png",
+        imageClassName: "object-contain p-2",
         buttonHref: "#quests-clickmax",
       },
     },

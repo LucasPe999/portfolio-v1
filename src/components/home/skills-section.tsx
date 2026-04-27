@@ -6,12 +6,12 @@ const sectionBackground =
 const swordIcon = "/icons/sword.svg";
 
 const toolIcons = [
-  "https://www.figma.com/api/mcp/asset/01828729-40a3-45d9-87b7-cba85be96926",
-  "https://www.figma.com/api/mcp/asset/2413195e-d2ac-407e-b7e9-6c83c3188c6f",
-  "https://www.figma.com/api/mcp/asset/9126c69d-0e11-4821-b5fd-8576a9614c3b",
-  "https://www.figma.com/api/mcp/asset/2b75206c-93ed-4be9-9a80-b8a6b542849a",
-  "https://www.figma.com/api/mcp/asset/b3761b72-60df-4bd8-b160-7b3e5481bc7d",
-  "https://www.figma.com/api/mcp/asset/57a79b5a-fc78-471b-9464-d5d4c706958b",
+  "/icons/tools/figma.svg",
+  "/icons/tools/framer.svg",
+  "/icons/tools/adobe.svg",
+  "/icons/tools/codex.svg",
+  "/icons/tools/vscode.svg",
+  "/icons/tools/spline.svg",
 ];
 
 const radarAngles = [-90, -30, 30, 90, 150, 210];
