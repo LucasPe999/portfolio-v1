@@ -6,12 +6,12 @@ const sectionBackground =
 const swordIcon = "/icons/sword.svg";
 
 const toolIcons = [
-  "/icons/tools/figma.svg",
-  "/icons/tools/framer.svg",
-  "/icons/tools/adobe.svg",
-  "/icons/tools/codex.svg",
-  "/icons/tools/vscode.svg",
-  "/icons/tools/spline.svg",
+  "/icons/tools/figma.png",
+  "/icons/tools/framer.png",
+  "/icons/tools/adobe.png",
+  "/icons/tools/codex.png",
+  "/icons/tools/vscode.png",
+  "/icons/tools/spline.webp",
 ];
 
 const radarAngles = [-90, -30, 30, 90, 150, 210];

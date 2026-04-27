@@ -15,7 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const questsBackground = "/quests-background.png";
 const questsIcon = "/icons/map.svg";
 const arrowRight = "/icons/arrow.svg";
-const clickmaxPreviewImage = "/highlights/clickmax/screen-01.png";
+const clickmaxPreviewImage = "/highlights/clickmax/preview.png";
 const ecomPreviewImage = "/ecomtab2.png";
 
 type QuestTab = {
@@ -48,7 +48,7 @@ const questTabs: QuestTab[] = [
     client: "BILHON",
     duration: "6 MESES",
     complexity: "MUITO ALTA",
-    preview: "/highlights/furion/screen-01.png",
+    preview: "/highlights/furion/preview.png",
     context:
       "Apesar do forte potencial tecnológico, a plataforma enfrentava desafios de experiência do usuário por conta da complexidade das funcionalidades e da necessidade de atender perfis muito diferentes, do iniciante ao avançado. O projeto foi estruturado para reorganizar a experiência, reduzir fricções e transformar o produto em uma ferramenta mais clara, escalável e orientada à ação.",
     introTitle: "Prólogo - Início do desenvolvimento",
