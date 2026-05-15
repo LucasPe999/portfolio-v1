@@ -20,6 +20,7 @@ type TimelineEntry = {
   role: string;
   company: string;
   highlights: string[];
+  current?: boolean;
 };
 
 const characterSummary = [
@@ -73,13 +74,13 @@ const badges: Badge[] = [
   },
 ];
 
-const timeline: TimelineEntry[] = [
+const careerTimeline: TimelineEntry[] = [
   {
     period: "2013 - 2018",
     role: "Designer Gráfico",
     company: "Entre Consultoria",
     highlights: [
-      "Atendimento e desenvolvimento de projetos para clientes da região.",
+      "Atendimento e desenvolvimento de projetos regionais.",
       "Criação de identidades visuais, campanhas e materiais gráficos.",
       "Atuação estratégica em branding e comunicação institucional.",
       "Gestão simultânea de múltiplos projetos, garantindo prazos e consistência visual.",
@@ -90,7 +91,7 @@ const timeline: TimelineEntry[] = [
     role: "Analista de Marketing",
     company: "Rede Dom Pedro",
     highlights: [
-      "Gestão da comunicação interna e externa em mais de 80 unidades da rede.",
+      "Gestão da comunicação interna e externa em 80+ unidades.",
       "Criação de materiais impressos, digitais e consistência visual.",
       "Planejamento e execução de campanhas e ações promocionais nacionais.",
       "Divulgação e fortalecimento de iniciativas de fidelização.",
@@ -102,9 +103,10 @@ const timeline: TimelineEntry[] = [
     company: "Scoder Tech Studio",
     highlights: [
       "Desenvolvimento de fluxos no Figma para clientes.",
-      "Prototipagens, validações e projetos responsivos em white label.",
+      "Prototipagens e validações de fluxos.",
+      "Desenvolvimento de projetos responsivos e no formato de white label.",
       "Reuniões com clientes para acompanhamento de projetos.",
-      "Desenvolvimento de design systems para escalabilidade.",
+      "Desenvolvimento de Design Systems para escalabilidade.",
     ],
   },
   {
@@ -112,13 +114,28 @@ const timeline: TimelineEntry[] = [
     role: "UI/UX Designer Lead",
     company: "Scoder Tech Studio",
     highlights: [
-      "Acompanhamento técnico da equipe e realização de weeklies e one-on-ones.",
+      "Acompanhamento técnico da equipe.",
+      "Realização de weeklies e one-on-ones.",
       "Apoio estratégico nas decisões de design.",
-      "Desenvolvimento de fluxos completos, design systems e prototipagens.",
+      "Desenvolvimento de fluxos completos, design system e prototipagens.",
       "Atuação em projetos de maior complexidade.",
     ],
   },
+  {
+    period: "2026 - Atual",
+    role: "UI Designer",
+    company: "Foton Informática",
+    current: true,
+    highlights: [
+      "Desenvolvimento de fluxos e interfaces de alta escala.",
+      "Criação e manutenção de Design Systems para padronização e escalabilidade entre produtos.",
+      "Atuação junto a squads multidisciplinares apoiando decisões de produto e experiência.",
+      "Colaboração direta com Engenharia por meio de handoffs estruturados e acompanhamento técnico das entregas.",
+    ],
+  },
 ];
+
+const mobileCareerTimeline = [...careerTimeline].reverse();
 
 function SectionHeading() {
   return (
@@ -156,6 +173,56 @@ function PanelFrame({
       </h3>
       <div className="mt-4">{children}</div>
     </section>
+  );
+}
+
+function TimelinePoint({ active = false }: { active?: boolean }) {
+  return (
+    <span
+      className={`relative z-10 block size-6 rounded-full border-2 ${
+        active
+          ? "border-[#23e8ff] bg-[#031218] shadow-[0_0_18px_rgba(35,232,255,0.62)]"
+          : "border-[#12d9ff] bg-[#021016] shadow-[0_0_14px_rgba(18,217,255,0.42)]"
+      }`}
+    >
+      <span className="absolute inset-[5px] rounded-full bg-[#0af0ff]" />
+    </span>
+  );
+}
+
+function TimelineContent({ entry, compact = false }: { entry: TimelineEntry; compact?: boolean }) {
+  const textColor = entry.current ? "text-white" : "text-[#989292]";
+
+  return (
+    <div className={`flex flex-col items-center text-center ${textColor}`}>
+      <p className="font-[family:var(--font-display)] text-[17px] font-bold leading-none">
+        {entry.period}
+      </p>
+
+      <div className={`flex flex-col items-center ${compact ? "mt-4" : "mt-3"}`}>
+        <TimelinePoint active={entry.current} />
+        <span
+          className={`h-[49px] w-px ${
+            entry.current ? "bg-[#f4fbff]" : "bg-[rgba(152,146,146,0.68)]"
+          }`}
+        />
+      </div>
+
+      <div className="mt-2 w-full max-w-[338px]">
+        <p className="font-[family:var(--font-display)] text-[16px] font-bold leading-normal">
+          {entry.role}
+        </p>
+        <p className="text-[12px] leading-normal">{entry.company}</p>
+      </div>
+
+      <div className="mt-2 h-px w-full max-w-[298px] bg-[rgba(152,146,146,0.5)]" />
+
+      <ul className="mt-2 w-full max-w-[338px] space-y-0.5 text-[11px] leading-[1.35]">
+        {entry.highlights.map((highlight) => (
+          <li key={highlight}>• {highlight}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -243,54 +310,24 @@ export function BackgroundSection() {
         </div>
 
         <div className="mt-10 px-0 py-6 sm:py-8">
-          <div className="relative hidden lg:block">
-            <div className="absolute inset-x-[-8vw] top-[28px] h-px bg-[linear-gradient(90deg,rgba(107,217,107,0.72),rgba(24,174,255,0.92),rgba(255,132,0,0.82))]" />
-            <div className="grid grid-cols-2 gap-6 xl:grid-cols-4 xl:gap-8">
-              {timeline.map((entry) => (
-                <article key={entry.period} className="relative text-center">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center">
-                    <span className="absolute top-[16px] h-6 w-6 rounded-full border-2 border-[#2ed9ff] bg-[rgba(0,8,18,0.95)] shadow-[0_0_18px_rgba(46,217,255,0.45)]" />
-                  </div>
-                  <p className="font-[family:var(--font-display)] text-[17px] text-white">{entry.period}</p>
-                  <div className="mt-6 rounded-[18px] border border-white/6 bg-[rgba(0,0,0,0.18)] px-4 py-5 xl:px-5">
-                    <p className="text-[16px] font-semibold text-white">{entry.role}</p>
-                    <p className="mt-1 text-[12px] text-[#b9b9b9]">{entry.company}</p>
-                    <ul className="mt-4 space-y-2 text-left text-[10px] leading-5 text-white/72">
-                      {entry.highlights.map((highlight) => (
-                        <li key={highlight} className="flex gap-2">
-                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-soft)]" />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+          <div className="relative hidden overflow-hidden pb-4 lg:block">
+            <div className="pointer-events-none absolute left-1/2 top-[41px] h-px w-[1920px] -translate-x-1/2 bg-[linear-gradient(90deg,#4bd85f_0%,#4bd85f_46%,#b6c329_62%,#ff7900_82%,#ff7900_100%)]" />
+            <div className="relative mx-auto flex min-w-[1692px] max-w-[1692px] items-start justify-center">
+              {careerTimeline.map((entry) => (
+                <article key={entry.period} className="w-[338.5px] shrink-0">
+                  <TimelineContent entry={entry} />
                 </article>
               ))}
             </div>
           </div>
 
-          <div className="space-y-4 lg:hidden">
-            {timeline.map((entry) => (
+          <div className="grid gap-5 md:grid-cols-2 lg:hidden">
+            {mobileCareerTimeline.map((entry) => (
               <article
                 key={entry.period}
-                className="rounded-[20px] border border-white/8 bg-[rgba(0,0,0,0.2)] p-5"
+                className="rounded-[18px] border border-white/8 bg-[rgba(0,0,0,0.18)] px-5 py-6 backdrop-blur-[2px]"
               >
-                <div className="flex items-center gap-4">
-                  <span className="h-4 w-4 rounded-full border-2 border-[#2ed9ff] bg-[rgba(0,8,18,0.95)] shadow-[0_0_14px_rgba(46,217,255,0.4)]" />
-                  <p className="font-[family:var(--font-display)] text-[16px] text-white">
-                    {entry.period}
-                  </p>
-                </div>
-                <p className="mt-4 text-[16px] font-semibold text-white">{entry.role}</p>
-                <p className="mt-1 text-[12px] text-[#b9b9b9]">{entry.company}</p>
-                <ul className="mt-4 space-y-2 text-[12px] leading-6 text-white/72">
-                  {entry.highlights.map((highlight) => (
-                    <li key={highlight} className="flex gap-2">
-                      <span className="mt-[10px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-soft)]" />
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
+                <TimelineContent entry={entry} compact />
               </article>
             ))}
           </div>
